@@ -1,0 +1,94 @@
+syntax = "proto3";
+option go_package = ".;proto";
+import "google/protobuf/timestamp.proto";
+
+service Clients {
+    rpc CreateAssistant(CreateAssistantRequest) returns (CreateAssistantResponse);
+    rpc AddDocument(AddDocumentRequest) returns (AddDocumentResponse);
+    rpc DeleteAssistant(DeleteAssistantRequest) returns (DeleteAssistantResponse);
+    rpc DeleteDocument(DeleteDocumentRequest) returns (DeleteDocumentResponse);
+    rpc GetOneAssistant(GetOneAssistantRequest) returns (GetOneAssistantResponse);
+    rpc GetUserAssistants(GetUserAssistantsRequest) returns (GetUserAssistantsResponse);
+    rpc GetAssistantDocuments(GetAssistantDocumentsRequest) returns (GetAssistantDocumentsResponse);
+}
+
+message Assistant {
+    int64 Id = 1;
+    int64 UserId = 2;
+    string Name = 3;
+    string Tag = 4;
+    string FirstMessage = 5;
+    google.protobuf.Timestamp CreatedAt = 6;
+    bool TelegramBotExists = 7;
+    int64 TodayQuestions = 8;
+    int64 ThisMonthQuestions = 9;
+}
+
+message Document {
+    int64 Id = 1;
+    int64 AssistantId = 2;
+    string FileName = 3;
+}
+
+message CreateAssistantRequest {
+    int64 UserId = 1;
+    string Name = 2;
+    string Tag = 3;
+    string FirstMessage = 4;
+}
+
+message CreateAssistantResponse {
+    int64 AssistantId = 1;
+}
+
+message AddDocumentRequest {
+    int64 AssistantId = 1;
+    string FileName = 2;
+}
+
+message AddDocumentResponse {
+    int64 DocumentId = 1;
+}
+
+message DeleteAssistantRequest {
+    int64 AssistantId = 1;
+    int64 UserId = 2;
+}
+
+message DeleteAssistantResponse {
+    string Status = 1;
+}
+
+message DeleteDocumentRequest {
+    int64 DocumentId = 1;
+    int64 UserId = 2;
+}
+
+message DeleteDocumentResponse {
+    string Status = 1;
+}
+
+message GetOneAssistantRequest {
+    int64 AssistantId = 1;
+    int64 AssistantTag = 2;
+}
+
+message GetOneAssistantResponse {
+    Assistant Assistant = 1;
+}
+
+message GetUserAssistantsRequest {
+    int64 UserId = 1;
+}
+
+message GetUserAssistantsResponse {
+    repeated Assistant Assistants = 1;
+}
+
+message GetAssistantDocumentsRequest {
+    int64 AssistantId = 1;
+}
+
+message GetAssistantDocumentsResponse {
+    repeated Document Documents = 1;
+}
