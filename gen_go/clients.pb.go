@@ -261,6 +261,7 @@ func (x *CreateAssistantRequest) GetFirstMessage() string {
 type CreateAssistantResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	AssistantId   int64                  `protobuf:"varint,1,opt,name=AssistantId,proto3" json:"AssistantId,omitempty"`
+	APIToken      string                 `protobuf:"bytes,2,opt,name=APIToken,proto3" json:"APIToken,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -300,6 +301,13 @@ func (x *CreateAssistantResponse) GetAssistantId() int64 {
 		return x.AssistantId
 	}
 	return 0
+}
+
+func (x *CreateAssistantResponse) GetAPIToken() string {
+	if x != nil {
+		return x.APIToken
+	}
+	return ""
 }
 
 type AddDocumentRequest struct {
@@ -593,7 +601,7 @@ func (x *DeleteDocumentResponse) GetStatus() string {
 type GetOneAssistantRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	AssistantId   int64                  `protobuf:"varint,1,opt,name=AssistantId,proto3" json:"AssistantId,omitempty"`
-	AssistantTag  int64                  `protobuf:"varint,2,opt,name=AssistantTag,proto3" json:"AssistantTag,omitempty"`
+	AssistantTag  string                 `protobuf:"bytes,2,opt,name=AssistantTag,proto3" json:"AssistantTag,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -635,11 +643,11 @@ func (x *GetOneAssistantRequest) GetAssistantId() int64 {
 	return 0
 }
 
-func (x *GetOneAssistantRequest) GetAssistantTag() int64 {
+func (x *GetOneAssistantRequest) GetAssistantTag() string {
 	if x != nil {
 		return x.AssistantTag
 	}
-	return 0
+	return ""
 }
 
 type GetOneAssistantResponse struct {
@@ -885,9 +893,10 @@ const file_clients_proto_rawDesc = "" +
 	"\x06UserId\x18\x01 \x01(\x03R\x06UserId\x12\x12\n" +
 	"\x04Name\x18\x02 \x01(\tR\x04Name\x12\x10\n" +
 	"\x03Tag\x18\x03 \x01(\tR\x03Tag\x12\"\n" +
-	"\fFirstMessage\x18\x04 \x01(\tR\fFirstMessage\";\n" +
+	"\fFirstMessage\x18\x04 \x01(\tR\fFirstMessage\"W\n" +
 	"\x17CreateAssistantResponse\x12 \n" +
-	"\vAssistantId\x18\x01 \x01(\x03R\vAssistantId\"R\n" +
+	"\vAssistantId\x18\x01 \x01(\x03R\vAssistantId\x12\x1a\n" +
+	"\bAPIToken\x18\x02 \x01(\tR\bAPIToken\"R\n" +
 	"\x12AddDocumentRequest\x12 \n" +
 	"\vAssistantId\x18\x01 \x01(\x03R\vAssistantId\x12\x1a\n" +
 	"\bFileName\x18\x02 \x01(\tR\bFileName\"5\n" +
@@ -909,7 +918,7 @@ const file_clients_proto_rawDesc = "" +
 	"\x06Status\x18\x01 \x01(\tR\x06Status\"^\n" +
 	"\x16GetOneAssistantRequest\x12 \n" +
 	"\vAssistantId\x18\x01 \x01(\x03R\vAssistantId\x12\"\n" +
-	"\fAssistantTag\x18\x02 \x01(\x03R\fAssistantTag\"C\n" +
+	"\fAssistantTag\x18\x02 \x01(\tR\fAssistantTag\"C\n" +
 	"\x17GetOneAssistantResponse\x12(\n" +
 	"\tAssistant\x18\x01 \x01(\v2\n" +
 	".AssistantR\tAssistant\"2\n" +

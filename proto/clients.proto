@@ -39,6 +39,7 @@ message CreateAssistantRequest {
 
 message CreateAssistantResponse {
     int64 AssistantId = 1;
+    string APIToken = 2;
 }
 
 message AddDocumentRequest {
@@ -70,7 +71,7 @@ message DeleteDocumentResponse {
 
 message GetOneAssistantRequest {
     int64 AssistantId = 1;
-    int64 AssistantTag = 2;
+    string AssistantTag = 2;
 }
 
 message GetOneAssistantResponse {
