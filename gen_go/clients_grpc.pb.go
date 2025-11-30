@@ -19,13 +19,20 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Clients_CreateAssistant_FullMethodName       = "/Clients/CreateAssistant"
-	Clients_AddDocument_FullMethodName           = "/Clients/AddDocument"
-	Clients_DeleteAssistant_FullMethodName       = "/Clients/DeleteAssistant"
-	Clients_DeleteDocument_FullMethodName        = "/Clients/DeleteDocument"
-	Clients_GetOneAssistant_FullMethodName       = "/Clients/GetOneAssistant"
-	Clients_GetUserAssistants_FullMethodName     = "/Clients/GetUserAssistants"
-	Clients_GetAssistantDocuments_FullMethodName = "/Clients/GetAssistantDocuments"
+	Clients_CreateAssistant_FullMethodName          = "/Clients/CreateAssistant"
+	Clients_AddDocument_FullMethodName              = "/Clients/AddDocument"
+	Clients_DeleteAssistant_FullMethodName          = "/Clients/DeleteAssistant"
+	Clients_DeleteDocument_FullMethodName           = "/Clients/DeleteDocument"
+	Clients_GetOneAssistant_FullMethodName          = "/Clients/GetOneAssistant"
+	Clients_GetUserAssistants_FullMethodName        = "/Clients/GetUserAssistants"
+	Clients_GetAssistantDocuments_FullMethodName    = "/Clients/GetAssistantDocuments"
+	Clients_UpdateAssistant_FullMethodName          = "/Clients/UpdateAssistant"
+	Clients_GiveAnswer_FullMethodName               = "/Clients/GiveAnswer"
+	Clients_GetAssistantGivenAnswers_FullMethodName = "/Clients/GetAssistantGivenAnswers"
+	Clients_DeleteGivenAnswer_FullMethodName        = "/Clients/DeleteGivenAnswer"
+	Clients_CreateAppeal_FullMethodName             = "/Clients/CreateAppeal"
+	Clients_GetAssistantAppeals_FullMethodName      = "/Clients/GetAssistantAppeals"
+	Clients_GetUserAssistantsAppeals_FullMethodName = "/Clients/GetUserAssistantsAppeals"
 )
 
 // ClientsClient is the client API for Clients service.
@@ -39,6 +46,13 @@ type ClientsClient interface {
 	GetOneAssistant(ctx context.Context, in *GetOneAssistantRequest, opts ...grpc.CallOption) (*GetOneAssistantResponse, error)
 	GetUserAssistants(ctx context.Context, in *GetUserAssistantsRequest, opts ...grpc.CallOption) (*GetUserAssistantsResponse, error)
 	GetAssistantDocuments(ctx context.Context, in *GetAssistantDocumentsRequest, opts ...grpc.CallOption) (*GetAssistantDocumentsResponse, error)
+	UpdateAssistant(ctx context.Context, in *UpdateAssistantRequest, opts ...grpc.CallOption) (*UpdateAssistantResponse, error)
+	GiveAnswer(ctx context.Context, in *GiveAnswerRequest, opts ...grpc.CallOption) (*GiveAnswerResponse, error)
+	GetAssistantGivenAnswers(ctx context.Context, in *GetAssistantGivenAnswersRequest, opts ...grpc.CallOption) (*GetAssistantGivenAnswersResponse, error)
+	DeleteGivenAnswer(ctx context.Context, in *DeleteGivenAnswerRequest, opts ...grpc.CallOption) (*DeleteGivenAnswerResponse, error)
+	CreateAppeal(ctx context.Context, in *CreateAppealRequest, opts ...grpc.CallOption) (*CreateAppealResponse, error)
+	GetAssistantAppeals(ctx context.Context, in *GetAssistantAppealsRequest, opts ...grpc.CallOption) (*GetAssistantAppealsResponse, error)
+	GetUserAssistantsAppeals(ctx context.Context, in *GetUserAssistantsAppealsRequest, opts ...grpc.CallOption) (*GetUserAssistantsAppealsResponse, error)
 }
 
 type clientsClient struct {
@@ -119,6 +133,76 @@ func (c *clientsClient) GetAssistantDocuments(ctx context.Context, in *GetAssist
 	return out, nil
 }
 
+func (c *clientsClient) UpdateAssistant(ctx context.Context, in *UpdateAssistantRequest, opts ...grpc.CallOption) (*UpdateAssistantResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(UpdateAssistantResponse)
+	err := c.cc.Invoke(ctx, Clients_UpdateAssistant_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *clientsClient) GiveAnswer(ctx context.Context, in *GiveAnswerRequest, opts ...grpc.CallOption) (*GiveAnswerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GiveAnswerResponse)
+	err := c.cc.Invoke(ctx, Clients_GiveAnswer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *clientsClient) GetAssistantGivenAnswers(ctx context.Context, in *GetAssistantGivenAnswersRequest, opts ...grpc.CallOption) (*GetAssistantGivenAnswersResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAssistantGivenAnswersResponse)
+	err := c.cc.Invoke(ctx, Clients_GetAssistantGivenAnswers_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *clientsClient) DeleteGivenAnswer(ctx context.Context, in *DeleteGivenAnswerRequest, opts ...grpc.CallOption) (*DeleteGivenAnswerResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteGivenAnswerResponse)
+	err := c.cc.Invoke(ctx, Clients_DeleteGivenAnswer_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *clientsClient) CreateAppeal(ctx context.Context, in *CreateAppealRequest, opts ...grpc.CallOption) (*CreateAppealResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateAppealResponse)
+	err := c.cc.Invoke(ctx, Clients_CreateAppeal_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *clientsClient) GetAssistantAppeals(ctx context.Context, in *GetAssistantAppealsRequest, opts ...grpc.CallOption) (*GetAssistantAppealsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAssistantAppealsResponse)
+	err := c.cc.Invoke(ctx, Clients_GetAssistantAppeals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *clientsClient) GetUserAssistantsAppeals(ctx context.Context, in *GetUserAssistantsAppealsRequest, opts ...grpc.CallOption) (*GetUserAssistantsAppealsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserAssistantsAppealsResponse)
+	err := c.cc.Invoke(ctx, Clients_GetUserAssistantsAppeals_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ClientsServer is the server API for Clients service.
 // All implementations must embed UnimplementedClientsServer
 // for forward compatibility.
@@ -130,6 +214,13 @@ type ClientsServer interface {
 	GetOneAssistant(context.Context, *GetOneAssistantRequest) (*GetOneAssistantResponse, error)
 	GetUserAssistants(context.Context, *GetUserAssistantsRequest) (*GetUserAssistantsResponse, error)
 	GetAssistantDocuments(context.Context, *GetAssistantDocumentsRequest) (*GetAssistantDocumentsResponse, error)
+	UpdateAssistant(context.Context, *UpdateAssistantRequest) (*UpdateAssistantResponse, error)
+	GiveAnswer(context.Context, *GiveAnswerRequest) (*GiveAnswerResponse, error)
+	GetAssistantGivenAnswers(context.Context, *GetAssistantGivenAnswersRequest) (*GetAssistantGivenAnswersResponse, error)
+	DeleteGivenAnswer(context.Context, *DeleteGivenAnswerRequest) (*DeleteGivenAnswerResponse, error)
+	CreateAppeal(context.Context, *CreateAppealRequest) (*CreateAppealResponse, error)
+	GetAssistantAppeals(context.Context, *GetAssistantAppealsRequest) (*GetAssistantAppealsResponse, error)
+	GetUserAssistantsAppeals(context.Context, *GetUserAssistantsAppealsRequest) (*GetUserAssistantsAppealsResponse, error)
 	mustEmbedUnimplementedClientsServer()
 }
 
@@ -160,6 +251,27 @@ func (UnimplementedClientsServer) GetUserAssistants(context.Context, *GetUserAss
 }
 func (UnimplementedClientsServer) GetAssistantDocuments(context.Context, *GetAssistantDocumentsRequest) (*GetAssistantDocumentsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAssistantDocuments not implemented")
+}
+func (UnimplementedClientsServer) UpdateAssistant(context.Context, *UpdateAssistantRequest) (*UpdateAssistantResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateAssistant not implemented")
+}
+func (UnimplementedClientsServer) GiveAnswer(context.Context, *GiveAnswerRequest) (*GiveAnswerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GiveAnswer not implemented")
+}
+func (UnimplementedClientsServer) GetAssistantGivenAnswers(context.Context, *GetAssistantGivenAnswersRequest) (*GetAssistantGivenAnswersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAssistantGivenAnswers not implemented")
+}
+func (UnimplementedClientsServer) DeleteGivenAnswer(context.Context, *DeleteGivenAnswerRequest) (*DeleteGivenAnswerResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteGivenAnswer not implemented")
+}
+func (UnimplementedClientsServer) CreateAppeal(context.Context, *CreateAppealRequest) (*CreateAppealResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateAppeal not implemented")
+}
+func (UnimplementedClientsServer) GetAssistantAppeals(context.Context, *GetAssistantAppealsRequest) (*GetAssistantAppealsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAssistantAppeals not implemented")
+}
+func (UnimplementedClientsServer) GetUserAssistantsAppeals(context.Context, *GetUserAssistantsAppealsRequest) (*GetUserAssistantsAppealsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserAssistantsAppeals not implemented")
 }
 func (UnimplementedClientsServer) mustEmbedUnimplementedClientsServer() {}
 func (UnimplementedClientsServer) testEmbeddedByValue()                 {}
@@ -308,6 +420,132 @@ func _Clients_GetAssistantDocuments_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Clients_UpdateAssistant_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateAssistantRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClientsServer).UpdateAssistant(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Clients_UpdateAssistant_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClientsServer).UpdateAssistant(ctx, req.(*UpdateAssistantRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Clients_GiveAnswer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GiveAnswerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClientsServer).GiveAnswer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Clients_GiveAnswer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClientsServer).GiveAnswer(ctx, req.(*GiveAnswerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Clients_GetAssistantGivenAnswers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAssistantGivenAnswersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClientsServer).GetAssistantGivenAnswers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Clients_GetAssistantGivenAnswers_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClientsServer).GetAssistantGivenAnswers(ctx, req.(*GetAssistantGivenAnswersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Clients_DeleteGivenAnswer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteGivenAnswerRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClientsServer).DeleteGivenAnswer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Clients_DeleteGivenAnswer_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClientsServer).DeleteGivenAnswer(ctx, req.(*DeleteGivenAnswerRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Clients_CreateAppeal_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateAppealRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClientsServer).CreateAppeal(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Clients_CreateAppeal_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClientsServer).CreateAppeal(ctx, req.(*CreateAppealRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Clients_GetAssistantAppeals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAssistantAppealsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClientsServer).GetAssistantAppeals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Clients_GetAssistantAppeals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClientsServer).GetAssistantAppeals(ctx, req.(*GetAssistantAppealsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Clients_GetUserAssistantsAppeals_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserAssistantsAppealsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClientsServer).GetUserAssistantsAppeals(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Clients_GetUserAssistantsAppeals_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClientsServer).GetUserAssistantsAppeals(ctx, req.(*GetUserAssistantsAppealsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Clients_ServiceDesc is the grpc.ServiceDesc for Clients service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -342,6 +580,34 @@ var Clients_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAssistantDocuments",
 			Handler:    _Clients_GetAssistantDocuments_Handler,
+		},
+		{
+			MethodName: "UpdateAssistant",
+			Handler:    _Clients_UpdateAssistant_Handler,
+		},
+		{
+			MethodName: "GiveAnswer",
+			Handler:    _Clients_GiveAnswer_Handler,
+		},
+		{
+			MethodName: "GetAssistantGivenAnswers",
+			Handler:    _Clients_GetAssistantGivenAnswers_Handler,
+		},
+		{
+			MethodName: "DeleteGivenAnswer",
+			Handler:    _Clients_DeleteGivenAnswer_Handler,
+		},
+		{
+			MethodName: "CreateAppeal",
+			Handler:    _Clients_CreateAppeal_Handler,
+		},
+		{
+			MethodName: "GetAssistantAppeals",
+			Handler:    _Clients_GetAssistantAppeals_Handler,
+		},
+		{
+			MethodName: "GetUserAssistantsAppeals",
+			Handler:    _Clients_GetUserAssistantsAppeals_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

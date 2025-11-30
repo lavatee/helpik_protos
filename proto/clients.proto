@@ -10,6 +10,13 @@ service Clients {
     rpc GetOneAssistant(GetOneAssistantRequest) returns (GetOneAssistantResponse);
     rpc GetUserAssistants(GetUserAssistantsRequest) returns (GetUserAssistantsResponse);
     rpc GetAssistantDocuments(GetAssistantDocumentsRequest) returns (GetAssistantDocumentsResponse);
+    rpc UpdateAssistant(UpdateAssistantRequest) returns (UpdateAssistantResponse);
+    rpc GiveAnswer(GiveAnswerRequest) returns (GiveAnswerResponse);
+    rpc GetAssistantGivenAnswers(GetAssistantGivenAnswersRequest) returns (GetAssistantGivenAnswersResponse);
+    rpc DeleteGivenAnswer(DeleteGivenAnswerRequest) returns (DeleteGivenAnswerResponse);
+    rpc CreateAppeal(CreateAppealRequest) returns (CreateAppealResponse);
+    rpc GetAssistantAppeals(GetAssistantAppealsRequest) returns (GetAssistantAppealsResponse);
+    rpc GetUserAssistantsAppeals(GetUserAssistantsAppealsRequest) returns (GetUserAssistantsAppealsResponse);
 }
 
 message Assistant {
@@ -28,6 +35,23 @@ message Document {
     int64 Id = 1;
     int64 AssistantId = 2;
     string FileName = 3;
+}
+
+message GivenAnswer {
+    int64 Id = 1;
+    int64 AssistantId = 2;
+    int64 UserId = 3;
+    string Question = 4;
+    string Answer = 5;
+}
+
+message Appeal {
+    int64 Id = 1;
+    string UserQuestion = 2;
+    string AssistantAnswer = 3;
+    string UserComment = 4;
+    int64 AssistantId = 5;
+    repeated int64 ChanksId = 6;
 }
 
 message CreateAssistantRequest {
@@ -92,4 +116,71 @@ message GetAssistantDocumentsRequest {
 
 message GetAssistantDocumentsResponse {
     repeated Document Documents = 1;
+}
+
+message UpdateAssistantRequest {
+    string NewAssistantName = 1;
+    string NewAssistantFirstMessage = 2;
+    int64 AssistantId = 3;
+    int64 UserId = 4;
+}
+
+message UpdateAssistantResponse {
+    string Status = 1;
+}
+
+message GiveAnswerRequest {
+    int64 AssistantId = 1;
+    int64 UserId = 2;
+    string Question = 3;
+    string Answer = 4;
+}
+
+message GiveAnswerResponse {
+    string Status = 1;
+}
+
+message GetAssistantGivenAnswersRequest {
+    int64 Assistantid = 1;
+}
+
+message GetAssistantGivenAnswersResponse {
+    repeated GivenAnswer GivenAnswers = 1;
+}
+
+message DeleteGivenAnswerRequest {
+    int64 AnswerId = 1;
+    int64 UserId = 2;
+}
+
+message DeleteGivenAnswerResponse {
+    string Status = 1;
+}
+
+message CreateAppealRequest {
+    string UserQuestion = 1;
+    string AssistantAnswer = 2;
+    string UserComment = 3;
+    int64 AssistantId = 4;
+    repeated int64 ChanksId = 5;
+}
+
+message CreateAppealResponse {
+    string Status = 1;
+}
+
+message GetAssistantAppealsRequest {
+    int64 AssistantId = 1;
+}
+
+message GetAssistantAppealsResponse {
+    repeated Appeal Appeals = 1;
+}
+
+message GetUserAssistantsAppealsRequest {
+    int64 UserId = 1;
+}
+
+message GetUserAssistantsAppealsResponse {
+    repeated Appeal Appeals = 1;
 }
