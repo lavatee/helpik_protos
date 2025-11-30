@@ -273,7 +273,7 @@ type Appeal struct {
 	AssistantAnswer string                 `protobuf:"bytes,3,opt,name=AssistantAnswer,proto3" json:"AssistantAnswer,omitempty"`
 	UserComment     string                 `protobuf:"bytes,4,opt,name=UserComment,proto3" json:"UserComment,omitempty"`
 	AssistantId     int64                  `protobuf:"varint,5,opt,name=AssistantId,proto3" json:"AssistantId,omitempty"`
-	ChanksId        []int64                `protobuf:"varint,6,rep,packed,name=ChanksId,proto3" json:"ChanksId,omitempty"`
+	ChanksId        []string               `protobuf:"bytes,6,rep,name=ChanksId,proto3" json:"ChanksId,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -343,7 +343,7 @@ func (x *Appeal) GetAssistantId() int64 {
 	return 0
 }
 
-func (x *Appeal) GetChanksId() []int64 {
+func (x *Appeal) GetChanksId() []string {
 	if x != nil {
 		return x.ChanksId
 	}
@@ -1444,7 +1444,7 @@ type CreateAppealRequest struct {
 	AssistantAnswer string                 `protobuf:"bytes,2,opt,name=AssistantAnswer,proto3" json:"AssistantAnswer,omitempty"`
 	UserComment     string                 `protobuf:"bytes,3,opt,name=UserComment,proto3" json:"UserComment,omitempty"`
 	AssistantId     int64                  `protobuf:"varint,4,opt,name=AssistantId,proto3" json:"AssistantId,omitempty"`
-	ChanksId        []int64                `protobuf:"varint,5,rep,packed,name=ChanksId,proto3" json:"ChanksId,omitempty"`
+	ChanksId        []string               `protobuf:"bytes,5,rep,name=ChanksId,proto3" json:"ChanksId,omitempty"`
 	unknownFields   protoimpl.UnknownFields
 	sizeCache       protoimpl.SizeCache
 }
@@ -1507,7 +1507,7 @@ func (x *CreateAppealRequest) GetAssistantId() int64 {
 	return 0
 }
 
-func (x *CreateAppealRequest) GetChanksId() []int64 {
+func (x *CreateAppealRequest) GetChanksId() []string {
 	if x != nil {
 		return x.ChanksId
 	}
@@ -1765,7 +1765,7 @@ const file_clients_proto_rawDesc = "" +
 	"\x0fAssistantAnswer\x18\x03 \x01(\tR\x0fAssistantAnswer\x12 \n" +
 	"\vUserComment\x18\x04 \x01(\tR\vUserComment\x12 \n" +
 	"\vAssistantId\x18\x05 \x01(\x03R\vAssistantId\x12\x1a\n" +
-	"\bChanksId\x18\x06 \x03(\x03R\bChanksId\"z\n" +
+	"\bChanksId\x18\x06 \x03(\tR\bChanksId\"z\n" +
 	"\x16CreateAssistantRequest\x12\x16\n" +
 	"\x06UserId\x18\x01 \x01(\x03R\x06UserId\x12\x12\n" +
 	"\x04Name\x18\x02 \x01(\tR\x04Name\x12\x10\n" +
@@ -1838,7 +1838,7 @@ const file_clients_proto_rawDesc = "" +
 	"\x0fAssistantAnswer\x18\x02 \x01(\tR\x0fAssistantAnswer\x12 \n" +
 	"\vUserComment\x18\x03 \x01(\tR\vUserComment\x12 \n" +
 	"\vAssistantId\x18\x04 \x01(\x03R\vAssistantId\x12\x1a\n" +
-	"\bChanksId\x18\x05 \x03(\x03R\bChanksId\".\n" +
+	"\bChanksId\x18\x05 \x03(\tR\bChanksId\".\n" +
 	"\x14CreateAppealResponse\x12\x16\n" +
 	"\x06Status\x18\x01 \x01(\tR\x06Status\">\n" +
 	"\x1aGetAssistantAppealsRequest\x12 \n" +
