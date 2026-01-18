@@ -51,7 +51,7 @@ message Appeal {
     string AssistantAnswer = 3;
     string UserComment = 4;
     int64 AssistantId = 5;
-    repeated string ChanksId = 6;
+    repeated string ChunksId = 6;
 }
 
 message CreateAssistantRequest {
@@ -162,7 +162,7 @@ message CreateAppealRequest {
     string AssistantAnswer = 2;
     string UserComment = 3;
     int64 AssistantId = 4;
-    repeated string ChanksId = 5;
+    repeated string ChunksId = 5;
 }
 
 message CreateAppealResponse {
