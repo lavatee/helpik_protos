@@ -1,0 +1,51 @@
+syntax = "proto3";
+option go_package = ".;proto";
+
+service Bots {
+    rpc GetAssistantBots(GetAssistantBotsRequest) returns (GetAssistantBotsResponse);
+    rpc AddAssistantBot(AddAssistantBotRequest) returns (AddAssistantBotResponse);
+    rpc DeleteAssistantBot(DeleteAssistantBotRequest) returns (DeleteAssistantBotResponse);
+    rpc UpdateAssistantBot(UpdateAssistantBotRequest) returns (UpdateAssistantBotResponse);
+}
+
+message AssistantBot {
+    int64 Id = 1;
+    int64 AssistantId = 2;
+    string Platform = 3;
+}
+
+message GetAssistantBotsRequest {
+    int64 AssistantId = 1;
+}
+
+message GetAssistantBotsResponse {
+    repeated AssistantBot Bots = 1;
+}
+
+message AddAssistantBotRequest {
+    int64 AssistantId = 1;
+    string Platform = 2;
+    string Token = 3;
+}
+
+message AddAssistantBotResponse {
+    int64 Id = 1;
+}
+
+message DeleteAssistantBotRequest {
+    int64 BotId = 1;
+}
+
+message DeleteAssistantBotResponse {
+    string Status = 1;
+}
+
+message UpdateAssistantBotRequest {
+    int64 AssistantId = 1;
+    string Platform = 2;
+    string Token = 3;
+}
+
+message UpdateAssistantBotResponse {
+    int64 BotId = 1;
+}
