@@ -33,6 +33,14 @@ const (
 	Clients_CreateAppeal_FullMethodName             = "/Clients/CreateAppeal"
 	Clients_GetAssistantAppeals_FullMethodName      = "/Clients/GetAssistantAppeals"
 	Clients_GetUserAssistantsAppeals_FullMethodName = "/Clients/GetUserAssistantsAppeals"
+	Clients_AddClientToQueue_FullMethodName         = "/Clients/AddClientToQueue"
+	Clients_GetOperatorChats_FullMethodName         = "/Clients/GetOperatorChats"
+	Clients_GetUserOperators_FullMethodName         = "/Clients/GetUserOperators"
+	Clients_GetOneQueueClient_FullMethodName        = "/Clients/GetOneQueueClient"
+	Clients_GetChatMessages_FullMethodName          = "/Clients/GetChatMessages"
+	Clients_CreateMessage_FullMethodName            = "/Clients/CreateMessage"
+	Clients_CheckIsOperator_FullMethodName          = "/Clients/CheckIsOperator"
+	Clients_NewOperator_FullMethodName              = "/Clients/NewOperator"
 )
 
 // ClientsClient is the client API for Clients service.
@@ -53,6 +61,14 @@ type ClientsClient interface {
 	CreateAppeal(ctx context.Context, in *CreateAppealRequest, opts ...grpc.CallOption) (*CreateAppealResponse, error)
 	GetAssistantAppeals(ctx context.Context, in *GetAssistantAppealsRequest, opts ...grpc.CallOption) (*GetAssistantAppealsResponse, error)
 	GetUserAssistantsAppeals(ctx context.Context, in *GetUserAssistantsAppealsRequest, opts ...grpc.CallOption) (*GetUserAssistantsAppealsResponse, error)
+	AddClientToQueue(ctx context.Context, in *AddClientToQueueRequest, opts ...grpc.CallOption) (*AddClientToQueueResponse, error)
+	GetOperatorChats(ctx context.Context, in *GetOperatorChatsRequest, opts ...grpc.CallOption) (*GetOperatorChatsResponse, error)
+	GetUserOperators(ctx context.Context, in *GetUserOperatorsRequest, opts ...grpc.CallOption) (*GetUserOperatorsResponse, error)
+	GetOneQueueClient(ctx context.Context, in *GetOneQueueClientRequest, opts ...grpc.CallOption) (*GetOneQueueClientResponse, error)
+	GetChatMessages(ctx context.Context, in *GetChatMessagesRequest, opts ...grpc.CallOption) (*GetChatMessagesResponse, error)
+	CreateMessage(ctx context.Context, in *CreateMessageRequest, opts ...grpc.CallOption) (*CreateMessageResponse, error)
+	CheckIsOperator(ctx context.Context, in *CheckIsOperatorRequest, opts ...grpc.CallOption) (*CheckIsOperatorResponse, error)
+	NewOperator(ctx context.Context, in *NewOperatorRequest, opts ...grpc.CallOption) (*NewOperatorResponse, error)
 }
 
 type clientsClient struct {
@@ -203,6 +219,86 @@ func (c *clientsClient) GetUserAssistantsAppeals(ctx context.Context, in *GetUse
 	return out, nil
 }
 
+func (c *clientsClient) AddClientToQueue(ctx context.Context, in *AddClientToQueueRequest, opts ...grpc.CallOption) (*AddClientToQueueResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(AddClientToQueueResponse)
+	err := c.cc.Invoke(ctx, Clients_AddClientToQueue_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *clientsClient) GetOperatorChats(ctx context.Context, in *GetOperatorChatsRequest, opts ...grpc.CallOption) (*GetOperatorChatsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOperatorChatsResponse)
+	err := c.cc.Invoke(ctx, Clients_GetOperatorChats_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *clientsClient) GetUserOperators(ctx context.Context, in *GetUserOperatorsRequest, opts ...grpc.CallOption) (*GetUserOperatorsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserOperatorsResponse)
+	err := c.cc.Invoke(ctx, Clients_GetUserOperators_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *clientsClient) GetOneQueueClient(ctx context.Context, in *GetOneQueueClientRequest, opts ...grpc.CallOption) (*GetOneQueueClientResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetOneQueueClientResponse)
+	err := c.cc.Invoke(ctx, Clients_GetOneQueueClient_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *clientsClient) GetChatMessages(ctx context.Context, in *GetChatMessagesRequest, opts ...grpc.CallOption) (*GetChatMessagesResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetChatMessagesResponse)
+	err := c.cc.Invoke(ctx, Clients_GetChatMessages_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *clientsClient) CreateMessage(ctx context.Context, in *CreateMessageRequest, opts ...grpc.CallOption) (*CreateMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CreateMessageResponse)
+	err := c.cc.Invoke(ctx, Clients_CreateMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *clientsClient) CheckIsOperator(ctx context.Context, in *CheckIsOperatorRequest, opts ...grpc.CallOption) (*CheckIsOperatorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CheckIsOperatorResponse)
+	err := c.cc.Invoke(ctx, Clients_CheckIsOperator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *clientsClient) NewOperator(ctx context.Context, in *NewOperatorRequest, opts ...grpc.CallOption) (*NewOperatorResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(NewOperatorResponse)
+	err := c.cc.Invoke(ctx, Clients_NewOperator_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ClientsServer is the server API for Clients service.
 // All implementations must embed UnimplementedClientsServer
 // for forward compatibility.
@@ -221,6 +317,14 @@ type ClientsServer interface {
 	CreateAppeal(context.Context, *CreateAppealRequest) (*CreateAppealResponse, error)
 	GetAssistantAppeals(context.Context, *GetAssistantAppealsRequest) (*GetAssistantAppealsResponse, error)
 	GetUserAssistantsAppeals(context.Context, *GetUserAssistantsAppealsRequest) (*GetUserAssistantsAppealsResponse, error)
+	AddClientToQueue(context.Context, *AddClientToQueueRequest) (*AddClientToQueueResponse, error)
+	GetOperatorChats(context.Context, *GetOperatorChatsRequest) (*GetOperatorChatsResponse, error)
+	GetUserOperators(context.Context, *GetUserOperatorsRequest) (*GetUserOperatorsResponse, error)
+	GetOneQueueClient(context.Context, *GetOneQueueClientRequest) (*GetOneQueueClientResponse, error)
+	GetChatMessages(context.Context, *GetChatMessagesRequest) (*GetChatMessagesResponse, error)
+	CreateMessage(context.Context, *CreateMessageRequest) (*CreateMessageResponse, error)
+	CheckIsOperator(context.Context, *CheckIsOperatorRequest) (*CheckIsOperatorResponse, error)
+	NewOperator(context.Context, *NewOperatorRequest) (*NewOperatorResponse, error)
 	mustEmbedUnimplementedClientsServer()
 }
 
@@ -272,6 +376,30 @@ func (UnimplementedClientsServer) GetAssistantAppeals(context.Context, *GetAssis
 }
 func (UnimplementedClientsServer) GetUserAssistantsAppeals(context.Context, *GetUserAssistantsAppealsRequest) (*GetUserAssistantsAppealsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserAssistantsAppeals not implemented")
+}
+func (UnimplementedClientsServer) AddClientToQueue(context.Context, *AddClientToQueueRequest) (*AddClientToQueueResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddClientToQueue not implemented")
+}
+func (UnimplementedClientsServer) GetOperatorChats(context.Context, *GetOperatorChatsRequest) (*GetOperatorChatsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOperatorChats not implemented")
+}
+func (UnimplementedClientsServer) GetUserOperators(context.Context, *GetUserOperatorsRequest) (*GetUserOperatorsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserOperators not implemented")
+}
+func (UnimplementedClientsServer) GetOneQueueClient(context.Context, *GetOneQueueClientRequest) (*GetOneQueueClientResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOneQueueClient not implemented")
+}
+func (UnimplementedClientsServer) GetChatMessages(context.Context, *GetChatMessagesRequest) (*GetChatMessagesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetChatMessages not implemented")
+}
+func (UnimplementedClientsServer) CreateMessage(context.Context, *CreateMessageRequest) (*CreateMessageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateMessage not implemented")
+}
+func (UnimplementedClientsServer) CheckIsOperator(context.Context, *CheckIsOperatorRequest) (*CheckIsOperatorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckIsOperator not implemented")
+}
+func (UnimplementedClientsServer) NewOperator(context.Context, *NewOperatorRequest) (*NewOperatorResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method NewOperator not implemented")
 }
 func (UnimplementedClientsServer) mustEmbedUnimplementedClientsServer() {}
 func (UnimplementedClientsServer) testEmbeddedByValue()                 {}
@@ -546,6 +674,150 @@ func _Clients_GetUserAssistantsAppeals_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Clients_AddClientToQueue_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddClientToQueueRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClientsServer).AddClientToQueue(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Clients_AddClientToQueue_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClientsServer).AddClientToQueue(ctx, req.(*AddClientToQueueRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Clients_GetOperatorChats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOperatorChatsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClientsServer).GetOperatorChats(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Clients_GetOperatorChats_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClientsServer).GetOperatorChats(ctx, req.(*GetOperatorChatsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Clients_GetUserOperators_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserOperatorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClientsServer).GetUserOperators(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Clients_GetUserOperators_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClientsServer).GetUserOperators(ctx, req.(*GetUserOperatorsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Clients_GetOneQueueClient_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOneQueueClientRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClientsServer).GetOneQueueClient(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Clients_GetOneQueueClient_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClientsServer).GetOneQueueClient(ctx, req.(*GetOneQueueClientRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Clients_GetChatMessages_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetChatMessagesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClientsServer).GetChatMessages(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Clients_GetChatMessages_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClientsServer).GetChatMessages(ctx, req.(*GetChatMessagesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Clients_CreateMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClientsServer).CreateMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Clients_CreateMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClientsServer).CreateMessage(ctx, req.(*CreateMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Clients_CheckIsOperator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckIsOperatorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClientsServer).CheckIsOperator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Clients_CheckIsOperator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClientsServer).CheckIsOperator(ctx, req.(*CheckIsOperatorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Clients_NewOperator_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewOperatorRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClientsServer).NewOperator(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Clients_NewOperator_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClientsServer).NewOperator(ctx, req.(*NewOperatorRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Clients_ServiceDesc is the grpc.ServiceDesc for Clients service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -608,6 +880,38 @@ var Clients_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetUserAssistantsAppeals",
 			Handler:    _Clients_GetUserAssistantsAppeals_Handler,
+		},
+		{
+			MethodName: "AddClientToQueue",
+			Handler:    _Clients_AddClientToQueue_Handler,
+		},
+		{
+			MethodName: "GetOperatorChats",
+			Handler:    _Clients_GetOperatorChats_Handler,
+		},
+		{
+			MethodName: "GetUserOperators",
+			Handler:    _Clients_GetUserOperators_Handler,
+		},
+		{
+			MethodName: "GetOneQueueClient",
+			Handler:    _Clients_GetOneQueueClient_Handler,
+		},
+		{
+			MethodName: "GetChatMessages",
+			Handler:    _Clients_GetChatMessages_Handler,
+		},
+		{
+			MethodName: "CreateMessage",
+			Handler:    _Clients_CreateMessage_Handler,
+		},
+		{
+			MethodName: "CheckIsOperator",
+			Handler:    _Clients_CheckIsOperator_Handler,
+		},
+		{
+			MethodName: "NewOperator",
+			Handler:    _Clients_NewOperator_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

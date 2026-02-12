@@ -17,6 +17,14 @@ service Clients {
     rpc CreateAppeal(CreateAppealRequest) returns (CreateAppealResponse);
     rpc GetAssistantAppeals(GetAssistantAppealsRequest) returns (GetAssistantAppealsResponse);
     rpc GetUserAssistantsAppeals(GetUserAssistantsAppealsRequest) returns (GetUserAssistantsAppealsResponse);
+    rpc AddClientToQueue(AddClientToQueueRequest) returns (AddClientToQueueResponse);
+    rpc GetOperatorChats(GetOperatorChatsRequest) returns (GetOperatorChatsResponse);
+    rpc GetUserOperators(GetUserOperatorsRequest) returns (GetUserOperatorsResponse);
+    rpc GetOneQueueClient(GetOneQueueClientRequest) returns (GetOneQueueClientResponse);
+    rpc GetChatMessages(GetChatMessagesRequest) returns (GetChatMessagesResponse);
+    rpc CreateMessage(CreateMessageRequest) returns (CreateMessageResponse);
+    rpc CheckIsOperator(CheckIsOperatorRequest) returns (CheckIsOperatorResponse);
+    rpc NewOperator(NewOperatorRequest) returns (NewOperatorResponse);
 }
 
 message Assistant {
@@ -52,6 +60,53 @@ message Appeal {
     string UserComment = 4;
     int64 AssistantId = 5;
     repeated string ChunksId = 6;
+}
+
+message Operator {
+    int64 Id = 1;
+    int64 UserId = 2;
+    int64 AssistantId = 3;
+    string AssistantName = 4;
+    string Name = 5;
+    google.protobuf.Timestamp LastCallTime = 6;
+    bool IsBusy = 7;
+    google.protobuf.Timestamp CreatedAt = 8;
+    float AverageRating = 9;
+    int64 ServicedClientsAmount = 10;
+}
+
+message OperatorQueue {
+    int64 Id = 1;
+    int64 OperatorId = 2;
+    string ClientId = 3;
+    string Problem = 4;
+    string Status = 5;
+    google.protobuf.Timestamp CreatedAt = 6;
+    google.protobuf.Timestamp ServicedAt = 7;
+    string ClientPlatform = 8;
+    int64 Rating = 9;
+    int64 ChatId = 10;
+}
+
+message Chat {
+    int64 Id = 1;
+    int64 QueueId = 2;
+    string ClientId = 3;
+    google.protobuf.Timestamp CreatedAt = 4;
+    string QueueStatus = 5;
+    string QueueProblem = 6;
+    int64 UnreadMessagesAmount = 7;
+    string LastMessage = 8;
+}
+
+message Message {
+    int64 Id = 1;
+    int64 ChatId = 2;
+    string Text = 3;
+    string Role = 4;
+    bool IsRead = 5;
+    google.protobuf.Timestamp SentAt = 6;
+    google.protobuf.Timestamp ExpiresAt = 7;
 }
 
 message CreateAssistantRequest {
@@ -183,4 +238,87 @@ message GetUserAssistantsAppealsRequest {
 
 message GetUserAssistantsAppealsResponse {
     repeated Appeal Appeals = 1;
+}
+
+message AddClientToQueueRequest {
+    string ClientId = 1;
+    int64 AssistantId = 2;
+    string Problem = 3;
+    string ClientPlatform = 4;
+    repeated Message DialogMessages = 5;
+}
+
+message AddClientToQueueResponse {
+    int64 QueueId = 1;
+}
+
+message GetOperatorChatsRequest {
+    int64 OperatorId = 1;
+    int64 UserId = 2;
+}
+
+message GetOperatorChatsResponse {
+    repeated Chat Chats = 1;
+}
+
+message GetUserOperatorsRequest {
+    int64 UserId = 1;
+}
+
+message GetUserOperatorsResponse {
+    repeated Operator Operators = 1;
+}
+
+message GetOneQueueClientRequest {
+    int64 QueueId = 1;
+}
+
+message GetOneQueueClientResponse {
+    OperatorQueue QueueClient = 1;
+}
+
+message GetChatMessagesRequest {
+    int64 QueueId = 1;
+    string TimeZone = 2;
+    int64 OperatorId = 3;
+    int64 UserId = 4;
+}
+
+message GetChatMessagesResponse {
+    repeated Message Messages = 1;
+}
+
+message CreateMessageRequest {
+    Message Message = 1;
+}
+
+message CreateMessageResponse {
+    int64 MessageId = 1;
+}
+
+message CheckIsOperatorRequest {
+    int64 UserId = 1;
+    int64 OperatorId = 2;
+}
+
+message CheckIsOperatorResponse {
+    bool IsOperator = 1;
+}
+
+message NewOperatorRequest {
+    Operator Operator = 1;
+    int64 UserId = 2;
+}
+
+message NewOperatorResponse {
+    int64 OperatorId = 1;
+}
+
+message GetAssistantOperatorsRequest {
+    int64 AssistantId = 1;
+    int64 UserId = 2;
+}
+
+message GetAssistantOperatorsResponse {
+    repeated Operator Operators = 1;
 }

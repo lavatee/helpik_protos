@@ -350,6 +350,430 @@ func (x *Appeal) GetChunksId() []string {
 	return nil
 }
 
+type Operator struct {
+	state                 protoimpl.MessageState `protogen:"open.v1"`
+	Id                    int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
+	UserId                int64                  `protobuf:"varint,2,opt,name=UserId,proto3" json:"UserId,omitempty"`
+	AssistantId           int64                  `protobuf:"varint,3,opt,name=AssistantId,proto3" json:"AssistantId,omitempty"`
+	AssistantName         string                 `protobuf:"bytes,4,opt,name=AssistantName,proto3" json:"AssistantName,omitempty"`
+	Name                  string                 `protobuf:"bytes,5,opt,name=Name,proto3" json:"Name,omitempty"`
+	LastCallTime          *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=LastCallTime,proto3" json:"LastCallTime,omitempty"`
+	IsBusy                bool                   `protobuf:"varint,7,opt,name=IsBusy,proto3" json:"IsBusy,omitempty"`
+	CreatedAt             *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=CreatedAt,proto3" json:"CreatedAt,omitempty"`
+	AverageRating         float32                `protobuf:"fixed32,9,opt,name=AverageRating,proto3" json:"AverageRating,omitempty"`
+	ServicedClientsAmount int64                  `protobuf:"varint,10,opt,name=ServicedClientsAmount,proto3" json:"ServicedClientsAmount,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
+}
+
+func (x *Operator) Reset() {
+	*x = Operator{}
+	mi := &file_clients_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Operator) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Operator) ProtoMessage() {}
+
+func (x *Operator) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Operator.ProtoReflect.Descriptor instead.
+func (*Operator) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *Operator) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Operator) GetUserId() int64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+func (x *Operator) GetAssistantId() int64 {
+	if x != nil {
+		return x.AssistantId
+	}
+	return 0
+}
+
+func (x *Operator) GetAssistantName() string {
+	if x != nil {
+		return x.AssistantName
+	}
+	return ""
+}
+
+func (x *Operator) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *Operator) GetLastCallTime() *timestamppb.Timestamp {
+	if x != nil {
+		return x.LastCallTime
+	}
+	return nil
+}
+
+func (x *Operator) GetIsBusy() bool {
+	if x != nil {
+		return x.IsBusy
+	}
+	return false
+}
+
+func (x *Operator) GetCreatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return nil
+}
+
+func (x *Operator) GetAverageRating() float32 {
+	if x != nil {
+		return x.AverageRating
+	}
+	return 0
+}
+
+func (x *Operator) GetServicedClientsAmount() int64 {
+	if x != nil {
+		return x.ServicedClientsAmount
+	}
+	return 0
+}
+
+type OperatorQueue struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	Id             int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
+	OperatorId     int64                  `protobuf:"varint,2,opt,name=OperatorId,proto3" json:"OperatorId,omitempty"`
+	ClientId       string                 `protobuf:"bytes,3,opt,name=ClientId,proto3" json:"ClientId,omitempty"`
+	Problem        string                 `protobuf:"bytes,4,opt,name=Problem,proto3" json:"Problem,omitempty"`
+	Status         string                 `protobuf:"bytes,5,opt,name=Status,proto3" json:"Status,omitempty"`
+	CreatedAt      *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=CreatedAt,proto3" json:"CreatedAt,omitempty"`
+	ServicedAt     *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=ServicedAt,proto3" json:"ServicedAt,omitempty"`
+	ClientPlatform string                 `protobuf:"bytes,8,opt,name=ClientPlatform,proto3" json:"ClientPlatform,omitempty"`
+	Rating         int64                  `protobuf:"varint,9,opt,name=Rating,proto3" json:"Rating,omitempty"`
+	ChatId         int64                  `protobuf:"varint,10,opt,name=ChatId,proto3" json:"ChatId,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *OperatorQueue) Reset() {
+	*x = OperatorQueue{}
+	mi := &file_clients_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *OperatorQueue) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*OperatorQueue) ProtoMessage() {}
+
+func (x *OperatorQueue) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use OperatorQueue.ProtoReflect.Descriptor instead.
+func (*OperatorQueue) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *OperatorQueue) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *OperatorQueue) GetOperatorId() int64 {
+	if x != nil {
+		return x.OperatorId
+	}
+	return 0
+}
+
+func (x *OperatorQueue) GetClientId() string {
+	if x != nil {
+		return x.ClientId
+	}
+	return ""
+}
+
+func (x *OperatorQueue) GetProblem() string {
+	if x != nil {
+		return x.Problem
+	}
+	return ""
+}
+
+func (x *OperatorQueue) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
+func (x *OperatorQueue) GetCreatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return nil
+}
+
+func (x *OperatorQueue) GetServicedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ServicedAt
+	}
+	return nil
+}
+
+func (x *OperatorQueue) GetClientPlatform() string {
+	if x != nil {
+		return x.ClientPlatform
+	}
+	return ""
+}
+
+func (x *OperatorQueue) GetRating() int64 {
+	if x != nil {
+		return x.Rating
+	}
+	return 0
+}
+
+func (x *OperatorQueue) GetChatId() int64 {
+	if x != nil {
+		return x.ChatId
+	}
+	return 0
+}
+
+type Chat struct {
+	state                protoimpl.MessageState `protogen:"open.v1"`
+	Id                   int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
+	QueueId              int64                  `protobuf:"varint,2,opt,name=QueueId,proto3" json:"QueueId,omitempty"`
+	ClientId             string                 `protobuf:"bytes,3,opt,name=ClientId,proto3" json:"ClientId,omitempty"`
+	CreatedAt            *timestamppb.Timestamp `protobuf:"bytes,4,opt,name=CreatedAt,proto3" json:"CreatedAt,omitempty"`
+	QueueStatus          string                 `protobuf:"bytes,5,opt,name=QueueStatus,proto3" json:"QueueStatus,omitempty"`
+	QueueProblem         string                 `protobuf:"bytes,6,opt,name=QueueProblem,proto3" json:"QueueProblem,omitempty"`
+	UnreadMessagesAmount int64                  `protobuf:"varint,7,opt,name=UnreadMessagesAmount,proto3" json:"UnreadMessagesAmount,omitempty"`
+	LastMessage          string                 `protobuf:"bytes,8,opt,name=LastMessage,proto3" json:"LastMessage,omitempty"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
+}
+
+func (x *Chat) Reset() {
+	*x = Chat{}
+	mi := &file_clients_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Chat) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Chat) ProtoMessage() {}
+
+func (x *Chat) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Chat.ProtoReflect.Descriptor instead.
+func (*Chat) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *Chat) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Chat) GetQueueId() int64 {
+	if x != nil {
+		return x.QueueId
+	}
+	return 0
+}
+
+func (x *Chat) GetClientId() string {
+	if x != nil {
+		return x.ClientId
+	}
+	return ""
+}
+
+func (x *Chat) GetCreatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return nil
+}
+
+func (x *Chat) GetQueueStatus() string {
+	if x != nil {
+		return x.QueueStatus
+	}
+	return ""
+}
+
+func (x *Chat) GetQueueProblem() string {
+	if x != nil {
+		return x.QueueProblem
+	}
+	return ""
+}
+
+func (x *Chat) GetUnreadMessagesAmount() int64 {
+	if x != nil {
+		return x.UnreadMessagesAmount
+	}
+	return 0
+}
+
+func (x *Chat) GetLastMessage() string {
+	if x != nil {
+		return x.LastMessage
+	}
+	return ""
+}
+
+type Message struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            int64                  `protobuf:"varint,1,opt,name=Id,proto3" json:"Id,omitempty"`
+	ChatId        int64                  `protobuf:"varint,2,opt,name=ChatId,proto3" json:"ChatId,omitempty"`
+	Text          string                 `protobuf:"bytes,3,opt,name=Text,proto3" json:"Text,omitempty"`
+	Role          string                 `protobuf:"bytes,4,opt,name=Role,proto3" json:"Role,omitempty"`
+	IsRead        bool                   `protobuf:"varint,5,opt,name=IsRead,proto3" json:"IsRead,omitempty"`
+	SentAt        *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=SentAt,proto3" json:"SentAt,omitempty"`
+	ExpiresAt     *timestamppb.Timestamp `protobuf:"bytes,7,opt,name=ExpiresAt,proto3" json:"ExpiresAt,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Message) Reset() {
+	*x = Message{}
+	mi := &file_clients_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Message) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Message) ProtoMessage() {}
+
+func (x *Message) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Message.ProtoReflect.Descriptor instead.
+func (*Message) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *Message) GetId() int64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Message) GetChatId() int64 {
+	if x != nil {
+		return x.ChatId
+	}
+	return 0
+}
+
+func (x *Message) GetText() string {
+	if x != nil {
+		return x.Text
+	}
+	return ""
+}
+
+func (x *Message) GetRole() string {
+	if x != nil {
+		return x.Role
+	}
+	return ""
+}
+
+func (x *Message) GetIsRead() bool {
+	if x != nil {
+		return x.IsRead
+	}
+	return false
+}
+
+func (x *Message) GetSentAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.SentAt
+	}
+	return nil
+}
+
+func (x *Message) GetExpiresAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.ExpiresAt
+	}
+	return nil
+}
+
 type CreateAssistantRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserId        int64                  `protobuf:"varint,1,opt,name=UserId,proto3" json:"UserId,omitempty"`
@@ -362,7 +786,7 @@ type CreateAssistantRequest struct {
 
 func (x *CreateAssistantRequest) Reset() {
 	*x = CreateAssistantRequest{}
-	mi := &file_clients_proto_msgTypes[4]
+	mi := &file_clients_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -374,7 +798,7 @@ func (x *CreateAssistantRequest) String() string {
 func (*CreateAssistantRequest) ProtoMessage() {}
 
 func (x *CreateAssistantRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[4]
+	mi := &file_clients_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -387,7 +811,7 @@ func (x *CreateAssistantRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateAssistantRequest.ProtoReflect.Descriptor instead.
 func (*CreateAssistantRequest) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{4}
+	return file_clients_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CreateAssistantRequest) GetUserId() int64 {
@@ -428,7 +852,7 @@ type CreateAssistantResponse struct {
 
 func (x *CreateAssistantResponse) Reset() {
 	*x = CreateAssistantResponse{}
-	mi := &file_clients_proto_msgTypes[5]
+	mi := &file_clients_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -440,7 +864,7 @@ func (x *CreateAssistantResponse) String() string {
 func (*CreateAssistantResponse) ProtoMessage() {}
 
 func (x *CreateAssistantResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[5]
+	mi := &file_clients_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -453,7 +877,7 @@ func (x *CreateAssistantResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateAssistantResponse.ProtoReflect.Descriptor instead.
 func (*CreateAssistantResponse) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{5}
+	return file_clients_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *CreateAssistantResponse) GetAssistantId() int64 {
@@ -480,7 +904,7 @@ type AddDocumentRequest struct {
 
 func (x *AddDocumentRequest) Reset() {
 	*x = AddDocumentRequest{}
-	mi := &file_clients_proto_msgTypes[6]
+	mi := &file_clients_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -492,7 +916,7 @@ func (x *AddDocumentRequest) String() string {
 func (*AddDocumentRequest) ProtoMessage() {}
 
 func (x *AddDocumentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[6]
+	mi := &file_clients_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -505,7 +929,7 @@ func (x *AddDocumentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddDocumentRequest.ProtoReflect.Descriptor instead.
 func (*AddDocumentRequest) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{6}
+	return file_clients_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *AddDocumentRequest) GetAssistantId() int64 {
@@ -531,7 +955,7 @@ type AddDocumentResponse struct {
 
 func (x *AddDocumentResponse) Reset() {
 	*x = AddDocumentResponse{}
-	mi := &file_clients_proto_msgTypes[7]
+	mi := &file_clients_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -543,7 +967,7 @@ func (x *AddDocumentResponse) String() string {
 func (*AddDocumentResponse) ProtoMessage() {}
 
 func (x *AddDocumentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[7]
+	mi := &file_clients_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -556,7 +980,7 @@ func (x *AddDocumentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AddDocumentResponse.ProtoReflect.Descriptor instead.
 func (*AddDocumentResponse) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{7}
+	return file_clients_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *AddDocumentResponse) GetDocumentId() int64 {
@@ -576,7 +1000,7 @@ type DeleteAssistantRequest struct {
 
 func (x *DeleteAssistantRequest) Reset() {
 	*x = DeleteAssistantRequest{}
-	mi := &file_clients_proto_msgTypes[8]
+	mi := &file_clients_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -588,7 +1012,7 @@ func (x *DeleteAssistantRequest) String() string {
 func (*DeleteAssistantRequest) ProtoMessage() {}
 
 func (x *DeleteAssistantRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[8]
+	mi := &file_clients_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -601,7 +1025,7 @@ func (x *DeleteAssistantRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAssistantRequest.ProtoReflect.Descriptor instead.
 func (*DeleteAssistantRequest) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{8}
+	return file_clients_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *DeleteAssistantRequest) GetAssistantId() int64 {
@@ -627,7 +1051,7 @@ type DeleteAssistantResponse struct {
 
 func (x *DeleteAssistantResponse) Reset() {
 	*x = DeleteAssistantResponse{}
-	mi := &file_clients_proto_msgTypes[9]
+	mi := &file_clients_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -639,7 +1063,7 @@ func (x *DeleteAssistantResponse) String() string {
 func (*DeleteAssistantResponse) ProtoMessage() {}
 
 func (x *DeleteAssistantResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[9]
+	mi := &file_clients_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -652,7 +1076,7 @@ func (x *DeleteAssistantResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteAssistantResponse.ProtoReflect.Descriptor instead.
 func (*DeleteAssistantResponse) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{9}
+	return file_clients_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *DeleteAssistantResponse) GetStatus() string {
@@ -672,7 +1096,7 @@ type DeleteDocumentRequest struct {
 
 func (x *DeleteDocumentRequest) Reset() {
 	*x = DeleteDocumentRequest{}
-	mi := &file_clients_proto_msgTypes[10]
+	mi := &file_clients_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -684,7 +1108,7 @@ func (x *DeleteDocumentRequest) String() string {
 func (*DeleteDocumentRequest) ProtoMessage() {}
 
 func (x *DeleteDocumentRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[10]
+	mi := &file_clients_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -697,7 +1121,7 @@ func (x *DeleteDocumentRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteDocumentRequest.ProtoReflect.Descriptor instead.
 func (*DeleteDocumentRequest) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{10}
+	return file_clients_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *DeleteDocumentRequest) GetDocumentId() int64 {
@@ -723,7 +1147,7 @@ type DeleteDocumentResponse struct {
 
 func (x *DeleteDocumentResponse) Reset() {
 	*x = DeleteDocumentResponse{}
-	mi := &file_clients_proto_msgTypes[11]
+	mi := &file_clients_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -735,7 +1159,7 @@ func (x *DeleteDocumentResponse) String() string {
 func (*DeleteDocumentResponse) ProtoMessage() {}
 
 func (x *DeleteDocumentResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[11]
+	mi := &file_clients_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -748,7 +1172,7 @@ func (x *DeleteDocumentResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteDocumentResponse.ProtoReflect.Descriptor instead.
 func (*DeleteDocumentResponse) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{11}
+	return file_clients_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *DeleteDocumentResponse) GetStatus() string {
@@ -768,7 +1192,7 @@ type GetOneAssistantRequest struct {
 
 func (x *GetOneAssistantRequest) Reset() {
 	*x = GetOneAssistantRequest{}
-	mi := &file_clients_proto_msgTypes[12]
+	mi := &file_clients_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -780,7 +1204,7 @@ func (x *GetOneAssistantRequest) String() string {
 func (*GetOneAssistantRequest) ProtoMessage() {}
 
 func (x *GetOneAssistantRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[12]
+	mi := &file_clients_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -793,7 +1217,7 @@ func (x *GetOneAssistantRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOneAssistantRequest.ProtoReflect.Descriptor instead.
 func (*GetOneAssistantRequest) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{12}
+	return file_clients_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *GetOneAssistantRequest) GetAssistantId() int64 {
@@ -819,7 +1243,7 @@ type GetOneAssistantResponse struct {
 
 func (x *GetOneAssistantResponse) Reset() {
 	*x = GetOneAssistantResponse{}
-	mi := &file_clients_proto_msgTypes[13]
+	mi := &file_clients_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -831,7 +1255,7 @@ func (x *GetOneAssistantResponse) String() string {
 func (*GetOneAssistantResponse) ProtoMessage() {}
 
 func (x *GetOneAssistantResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[13]
+	mi := &file_clients_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -844,7 +1268,7 @@ func (x *GetOneAssistantResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetOneAssistantResponse.ProtoReflect.Descriptor instead.
 func (*GetOneAssistantResponse) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{13}
+	return file_clients_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *GetOneAssistantResponse) GetAssistant() *Assistant {
@@ -863,7 +1287,7 @@ type GetUserAssistantsRequest struct {
 
 func (x *GetUserAssistantsRequest) Reset() {
 	*x = GetUserAssistantsRequest{}
-	mi := &file_clients_proto_msgTypes[14]
+	mi := &file_clients_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -875,7 +1299,7 @@ func (x *GetUserAssistantsRequest) String() string {
 func (*GetUserAssistantsRequest) ProtoMessage() {}
 
 func (x *GetUserAssistantsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[14]
+	mi := &file_clients_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -888,7 +1312,7 @@ func (x *GetUserAssistantsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserAssistantsRequest.ProtoReflect.Descriptor instead.
 func (*GetUserAssistantsRequest) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{14}
+	return file_clients_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *GetUserAssistantsRequest) GetUserId() int64 {
@@ -907,7 +1331,7 @@ type GetUserAssistantsResponse struct {
 
 func (x *GetUserAssistantsResponse) Reset() {
 	*x = GetUserAssistantsResponse{}
-	mi := &file_clients_proto_msgTypes[15]
+	mi := &file_clients_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -919,7 +1343,7 @@ func (x *GetUserAssistantsResponse) String() string {
 func (*GetUserAssistantsResponse) ProtoMessage() {}
 
 func (x *GetUserAssistantsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[15]
+	mi := &file_clients_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -932,7 +1356,7 @@ func (x *GetUserAssistantsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserAssistantsResponse.ProtoReflect.Descriptor instead.
 func (*GetUserAssistantsResponse) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{15}
+	return file_clients_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *GetUserAssistantsResponse) GetAssistants() []*Assistant {
@@ -951,7 +1375,7 @@ type GetAssistantDocumentsRequest struct {
 
 func (x *GetAssistantDocumentsRequest) Reset() {
 	*x = GetAssistantDocumentsRequest{}
-	mi := &file_clients_proto_msgTypes[16]
+	mi := &file_clients_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -963,7 +1387,7 @@ func (x *GetAssistantDocumentsRequest) String() string {
 func (*GetAssistantDocumentsRequest) ProtoMessage() {}
 
 func (x *GetAssistantDocumentsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[16]
+	mi := &file_clients_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -976,7 +1400,7 @@ func (x *GetAssistantDocumentsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAssistantDocumentsRequest.ProtoReflect.Descriptor instead.
 func (*GetAssistantDocumentsRequest) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{16}
+	return file_clients_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *GetAssistantDocumentsRequest) GetAssistantId() int64 {
@@ -995,7 +1419,7 @@ type GetAssistantDocumentsResponse struct {
 
 func (x *GetAssistantDocumentsResponse) Reset() {
 	*x = GetAssistantDocumentsResponse{}
-	mi := &file_clients_proto_msgTypes[17]
+	mi := &file_clients_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1007,7 +1431,7 @@ func (x *GetAssistantDocumentsResponse) String() string {
 func (*GetAssistantDocumentsResponse) ProtoMessage() {}
 
 func (x *GetAssistantDocumentsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[17]
+	mi := &file_clients_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1020,7 +1444,7 @@ func (x *GetAssistantDocumentsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAssistantDocumentsResponse.ProtoReflect.Descriptor instead.
 func (*GetAssistantDocumentsResponse) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{17}
+	return file_clients_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *GetAssistantDocumentsResponse) GetDocuments() []*Document {
@@ -1042,7 +1466,7 @@ type UpdateAssistantRequest struct {
 
 func (x *UpdateAssistantRequest) Reset() {
 	*x = UpdateAssistantRequest{}
-	mi := &file_clients_proto_msgTypes[18]
+	mi := &file_clients_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1054,7 +1478,7 @@ func (x *UpdateAssistantRequest) String() string {
 func (*UpdateAssistantRequest) ProtoMessage() {}
 
 func (x *UpdateAssistantRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[18]
+	mi := &file_clients_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1067,7 +1491,7 @@ func (x *UpdateAssistantRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateAssistantRequest.ProtoReflect.Descriptor instead.
 func (*UpdateAssistantRequest) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{18}
+	return file_clients_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *UpdateAssistantRequest) GetNewAssistantName() string {
@@ -1107,7 +1531,7 @@ type UpdateAssistantResponse struct {
 
 func (x *UpdateAssistantResponse) Reset() {
 	*x = UpdateAssistantResponse{}
-	mi := &file_clients_proto_msgTypes[19]
+	mi := &file_clients_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1119,7 +1543,7 @@ func (x *UpdateAssistantResponse) String() string {
 func (*UpdateAssistantResponse) ProtoMessage() {}
 
 func (x *UpdateAssistantResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[19]
+	mi := &file_clients_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1132,7 +1556,7 @@ func (x *UpdateAssistantResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UpdateAssistantResponse.ProtoReflect.Descriptor instead.
 func (*UpdateAssistantResponse) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{19}
+	return file_clients_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *UpdateAssistantResponse) GetStatus() string {
@@ -1154,7 +1578,7 @@ type GiveAnswerRequest struct {
 
 func (x *GiveAnswerRequest) Reset() {
 	*x = GiveAnswerRequest{}
-	mi := &file_clients_proto_msgTypes[20]
+	mi := &file_clients_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1166,7 +1590,7 @@ func (x *GiveAnswerRequest) String() string {
 func (*GiveAnswerRequest) ProtoMessage() {}
 
 func (x *GiveAnswerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[20]
+	mi := &file_clients_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1179,7 +1603,7 @@ func (x *GiveAnswerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GiveAnswerRequest.ProtoReflect.Descriptor instead.
 func (*GiveAnswerRequest) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{20}
+	return file_clients_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *GiveAnswerRequest) GetAssistantId() int64 {
@@ -1219,7 +1643,7 @@ type GiveAnswerResponse struct {
 
 func (x *GiveAnswerResponse) Reset() {
 	*x = GiveAnswerResponse{}
-	mi := &file_clients_proto_msgTypes[21]
+	mi := &file_clients_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1231,7 +1655,7 @@ func (x *GiveAnswerResponse) String() string {
 func (*GiveAnswerResponse) ProtoMessage() {}
 
 func (x *GiveAnswerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[21]
+	mi := &file_clients_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1244,7 +1668,7 @@ func (x *GiveAnswerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GiveAnswerResponse.ProtoReflect.Descriptor instead.
 func (*GiveAnswerResponse) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{21}
+	return file_clients_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *GiveAnswerResponse) GetStatus() string {
@@ -1263,7 +1687,7 @@ type GetAssistantGivenAnswersRequest struct {
 
 func (x *GetAssistantGivenAnswersRequest) Reset() {
 	*x = GetAssistantGivenAnswersRequest{}
-	mi := &file_clients_proto_msgTypes[22]
+	mi := &file_clients_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1275,7 +1699,7 @@ func (x *GetAssistantGivenAnswersRequest) String() string {
 func (*GetAssistantGivenAnswersRequest) ProtoMessage() {}
 
 func (x *GetAssistantGivenAnswersRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[22]
+	mi := &file_clients_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1288,7 +1712,7 @@ func (x *GetAssistantGivenAnswersRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAssistantGivenAnswersRequest.ProtoReflect.Descriptor instead.
 func (*GetAssistantGivenAnswersRequest) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{22}
+	return file_clients_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *GetAssistantGivenAnswersRequest) GetAssistantid() int64 {
@@ -1307,7 +1731,7 @@ type GetAssistantGivenAnswersResponse struct {
 
 func (x *GetAssistantGivenAnswersResponse) Reset() {
 	*x = GetAssistantGivenAnswersResponse{}
-	mi := &file_clients_proto_msgTypes[23]
+	mi := &file_clients_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1319,7 +1743,7 @@ func (x *GetAssistantGivenAnswersResponse) String() string {
 func (*GetAssistantGivenAnswersResponse) ProtoMessage() {}
 
 func (x *GetAssistantGivenAnswersResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[23]
+	mi := &file_clients_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1332,7 +1756,7 @@ func (x *GetAssistantGivenAnswersResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAssistantGivenAnswersResponse.ProtoReflect.Descriptor instead.
 func (*GetAssistantGivenAnswersResponse) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{23}
+	return file_clients_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *GetAssistantGivenAnswersResponse) GetGivenAnswers() []*GivenAnswer {
@@ -1352,7 +1776,7 @@ type DeleteGivenAnswerRequest struct {
 
 func (x *DeleteGivenAnswerRequest) Reset() {
 	*x = DeleteGivenAnswerRequest{}
-	mi := &file_clients_proto_msgTypes[24]
+	mi := &file_clients_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1364,7 +1788,7 @@ func (x *DeleteGivenAnswerRequest) String() string {
 func (*DeleteGivenAnswerRequest) ProtoMessage() {}
 
 func (x *DeleteGivenAnswerRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[24]
+	mi := &file_clients_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1377,7 +1801,7 @@ func (x *DeleteGivenAnswerRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteGivenAnswerRequest.ProtoReflect.Descriptor instead.
 func (*DeleteGivenAnswerRequest) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{24}
+	return file_clients_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *DeleteGivenAnswerRequest) GetAnswerId() int64 {
@@ -1403,7 +1827,7 @@ type DeleteGivenAnswerResponse struct {
 
 func (x *DeleteGivenAnswerResponse) Reset() {
 	*x = DeleteGivenAnswerResponse{}
-	mi := &file_clients_proto_msgTypes[25]
+	mi := &file_clients_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1415,7 +1839,7 @@ func (x *DeleteGivenAnswerResponse) String() string {
 func (*DeleteGivenAnswerResponse) ProtoMessage() {}
 
 func (x *DeleteGivenAnswerResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[25]
+	mi := &file_clients_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1428,7 +1852,7 @@ func (x *DeleteGivenAnswerResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteGivenAnswerResponse.ProtoReflect.Descriptor instead.
 func (*DeleteGivenAnswerResponse) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{25}
+	return file_clients_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *DeleteGivenAnswerResponse) GetStatus() string {
@@ -1451,7 +1875,7 @@ type CreateAppealRequest struct {
 
 func (x *CreateAppealRequest) Reset() {
 	*x = CreateAppealRequest{}
-	mi := &file_clients_proto_msgTypes[26]
+	mi := &file_clients_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1463,7 +1887,7 @@ func (x *CreateAppealRequest) String() string {
 func (*CreateAppealRequest) ProtoMessage() {}
 
 func (x *CreateAppealRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[26]
+	mi := &file_clients_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1476,7 +1900,7 @@ func (x *CreateAppealRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateAppealRequest.ProtoReflect.Descriptor instead.
 func (*CreateAppealRequest) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{26}
+	return file_clients_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *CreateAppealRequest) GetUserQuestion() string {
@@ -1523,7 +1947,7 @@ type CreateAppealResponse struct {
 
 func (x *CreateAppealResponse) Reset() {
 	*x = CreateAppealResponse{}
-	mi := &file_clients_proto_msgTypes[27]
+	mi := &file_clients_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1535,7 +1959,7 @@ func (x *CreateAppealResponse) String() string {
 func (*CreateAppealResponse) ProtoMessage() {}
 
 func (x *CreateAppealResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[27]
+	mi := &file_clients_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1548,7 +1972,7 @@ func (x *CreateAppealResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateAppealResponse.ProtoReflect.Descriptor instead.
 func (*CreateAppealResponse) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{27}
+	return file_clients_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *CreateAppealResponse) GetStatus() string {
@@ -1567,7 +1991,7 @@ type GetAssistantAppealsRequest struct {
 
 func (x *GetAssistantAppealsRequest) Reset() {
 	*x = GetAssistantAppealsRequest{}
-	mi := &file_clients_proto_msgTypes[28]
+	mi := &file_clients_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1579,7 +2003,7 @@ func (x *GetAssistantAppealsRequest) String() string {
 func (*GetAssistantAppealsRequest) ProtoMessage() {}
 
 func (x *GetAssistantAppealsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[28]
+	mi := &file_clients_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1592,7 +2016,7 @@ func (x *GetAssistantAppealsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAssistantAppealsRequest.ProtoReflect.Descriptor instead.
 func (*GetAssistantAppealsRequest) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{28}
+	return file_clients_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *GetAssistantAppealsRequest) GetAssistantId() int64 {
@@ -1611,7 +2035,7 @@ type GetAssistantAppealsResponse struct {
 
 func (x *GetAssistantAppealsResponse) Reset() {
 	*x = GetAssistantAppealsResponse{}
-	mi := &file_clients_proto_msgTypes[29]
+	mi := &file_clients_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1623,7 +2047,7 @@ func (x *GetAssistantAppealsResponse) String() string {
 func (*GetAssistantAppealsResponse) ProtoMessage() {}
 
 func (x *GetAssistantAppealsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[29]
+	mi := &file_clients_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1636,7 +2060,7 @@ func (x *GetAssistantAppealsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetAssistantAppealsResponse.ProtoReflect.Descriptor instead.
 func (*GetAssistantAppealsResponse) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{29}
+	return file_clients_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *GetAssistantAppealsResponse) GetAppeals() []*Appeal {
@@ -1655,7 +2079,7 @@ type GetUserAssistantsAppealsRequest struct {
 
 func (x *GetUserAssistantsAppealsRequest) Reset() {
 	*x = GetUserAssistantsAppealsRequest{}
-	mi := &file_clients_proto_msgTypes[30]
+	mi := &file_clients_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1667,7 +2091,7 @@ func (x *GetUserAssistantsAppealsRequest) String() string {
 func (*GetUserAssistantsAppealsRequest) ProtoMessage() {}
 
 func (x *GetUserAssistantsAppealsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[30]
+	mi := &file_clients_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1680,7 +2104,7 @@ func (x *GetUserAssistantsAppealsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserAssistantsAppealsRequest.ProtoReflect.Descriptor instead.
 func (*GetUserAssistantsAppealsRequest) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{30}
+	return file_clients_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *GetUserAssistantsAppealsRequest) GetUserId() int64 {
@@ -1699,7 +2123,7 @@ type GetUserAssistantsAppealsResponse struct {
 
 func (x *GetUserAssistantsAppealsResponse) Reset() {
 	*x = GetUserAssistantsAppealsResponse{}
-	mi := &file_clients_proto_msgTypes[31]
+	mi := &file_clients_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1711,7 +2135,7 @@ func (x *GetUserAssistantsAppealsResponse) String() string {
 func (*GetUserAssistantsAppealsResponse) ProtoMessage() {}
 
 func (x *GetUserAssistantsAppealsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_clients_proto_msgTypes[31]
+	mi := &file_clients_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1724,12 +2148,892 @@ func (x *GetUserAssistantsAppealsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetUserAssistantsAppealsResponse.ProtoReflect.Descriptor instead.
 func (*GetUserAssistantsAppealsResponse) Descriptor() ([]byte, []int) {
-	return file_clients_proto_rawDescGZIP(), []int{31}
+	return file_clients_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *GetUserAssistantsAppealsResponse) GetAppeals() []*Appeal {
 	if x != nil {
 		return x.Appeals
+	}
+	return nil
+}
+
+type AddClientToQueueRequest struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	ClientId       string                 `protobuf:"bytes,1,opt,name=ClientId,proto3" json:"ClientId,omitempty"`
+	AssistantId    int64                  `protobuf:"varint,2,opt,name=AssistantId,proto3" json:"AssistantId,omitempty"`
+	Problem        string                 `protobuf:"bytes,3,opt,name=Problem,proto3" json:"Problem,omitempty"`
+	ClientPlatform string                 `protobuf:"bytes,4,opt,name=ClientPlatform,proto3" json:"ClientPlatform,omitempty"`
+	DialogMessages []*Message             `protobuf:"bytes,5,rep,name=DialogMessages,proto3" json:"DialogMessages,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *AddClientToQueueRequest) Reset() {
+	*x = AddClientToQueueRequest{}
+	mi := &file_clients_proto_msgTypes[36]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddClientToQueueRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddClientToQueueRequest) ProtoMessage() {}
+
+func (x *AddClientToQueueRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[36]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddClientToQueueRequest.ProtoReflect.Descriptor instead.
+func (*AddClientToQueueRequest) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *AddClientToQueueRequest) GetClientId() string {
+	if x != nil {
+		return x.ClientId
+	}
+	return ""
+}
+
+func (x *AddClientToQueueRequest) GetAssistantId() int64 {
+	if x != nil {
+		return x.AssistantId
+	}
+	return 0
+}
+
+func (x *AddClientToQueueRequest) GetProblem() string {
+	if x != nil {
+		return x.Problem
+	}
+	return ""
+}
+
+func (x *AddClientToQueueRequest) GetClientPlatform() string {
+	if x != nil {
+		return x.ClientPlatform
+	}
+	return ""
+}
+
+func (x *AddClientToQueueRequest) GetDialogMessages() []*Message {
+	if x != nil {
+		return x.DialogMessages
+	}
+	return nil
+}
+
+type AddClientToQueueResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	QueueId       int64                  `protobuf:"varint,1,opt,name=QueueId,proto3" json:"QueueId,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AddClientToQueueResponse) Reset() {
+	*x = AddClientToQueueResponse{}
+	mi := &file_clients_proto_msgTypes[37]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AddClientToQueueResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddClientToQueueResponse) ProtoMessage() {}
+
+func (x *AddClientToQueueResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[37]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddClientToQueueResponse.ProtoReflect.Descriptor instead.
+func (*AddClientToQueueResponse) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{37}
+}
+
+func (x *AddClientToQueueResponse) GetQueueId() int64 {
+	if x != nil {
+		return x.QueueId
+	}
+	return 0
+}
+
+type GetOperatorChatsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	OperatorId    int64                  `protobuf:"varint,1,opt,name=OperatorId,proto3" json:"OperatorId,omitempty"`
+	UserId        int64                  `protobuf:"varint,2,opt,name=UserId,proto3" json:"UserId,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOperatorChatsRequest) Reset() {
+	*x = GetOperatorChatsRequest{}
+	mi := &file_clients_proto_msgTypes[38]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOperatorChatsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOperatorChatsRequest) ProtoMessage() {}
+
+func (x *GetOperatorChatsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[38]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOperatorChatsRequest.ProtoReflect.Descriptor instead.
+func (*GetOperatorChatsRequest) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *GetOperatorChatsRequest) GetOperatorId() int64 {
+	if x != nil {
+		return x.OperatorId
+	}
+	return 0
+}
+
+func (x *GetOperatorChatsRequest) GetUserId() int64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+type GetOperatorChatsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Chats         []*Chat                `protobuf:"bytes,1,rep,name=Chats,proto3" json:"Chats,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOperatorChatsResponse) Reset() {
+	*x = GetOperatorChatsResponse{}
+	mi := &file_clients_proto_msgTypes[39]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOperatorChatsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOperatorChatsResponse) ProtoMessage() {}
+
+func (x *GetOperatorChatsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[39]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOperatorChatsResponse.ProtoReflect.Descriptor instead.
+func (*GetOperatorChatsResponse) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{39}
+}
+
+func (x *GetOperatorChatsResponse) GetChats() []*Chat {
+	if x != nil {
+		return x.Chats
+	}
+	return nil
+}
+
+type GetUserOperatorsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserId        int64                  `protobuf:"varint,1,opt,name=UserId,proto3" json:"UserId,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserOperatorsRequest) Reset() {
+	*x = GetUserOperatorsRequest{}
+	mi := &file_clients_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserOperatorsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserOperatorsRequest) ProtoMessage() {}
+
+func (x *GetUserOperatorsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserOperatorsRequest.ProtoReflect.Descriptor instead.
+func (*GetUserOperatorsRequest) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *GetUserOperatorsRequest) GetUserId() int64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+type GetUserOperatorsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Operators     []*Operator            `protobuf:"bytes,1,rep,name=Operators,proto3" json:"Operators,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetUserOperatorsResponse) Reset() {
+	*x = GetUserOperatorsResponse{}
+	mi := &file_clients_proto_msgTypes[41]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetUserOperatorsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserOperatorsResponse) ProtoMessage() {}
+
+func (x *GetUserOperatorsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[41]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserOperatorsResponse.ProtoReflect.Descriptor instead.
+func (*GetUserOperatorsResponse) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{41}
+}
+
+func (x *GetUserOperatorsResponse) GetOperators() []*Operator {
+	if x != nil {
+		return x.Operators
+	}
+	return nil
+}
+
+type GetOneQueueClientRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	QueueId       int64                  `protobuf:"varint,1,opt,name=QueueId,proto3" json:"QueueId,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOneQueueClientRequest) Reset() {
+	*x = GetOneQueueClientRequest{}
+	mi := &file_clients_proto_msgTypes[42]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOneQueueClientRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOneQueueClientRequest) ProtoMessage() {}
+
+func (x *GetOneQueueClientRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[42]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOneQueueClientRequest.ProtoReflect.Descriptor instead.
+func (*GetOneQueueClientRequest) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *GetOneQueueClientRequest) GetQueueId() int64 {
+	if x != nil {
+		return x.QueueId
+	}
+	return 0
+}
+
+type GetOneQueueClientResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	QueueClient   *OperatorQueue         `protobuf:"bytes,1,opt,name=QueueClient,proto3" json:"QueueClient,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetOneQueueClientResponse) Reset() {
+	*x = GetOneQueueClientResponse{}
+	mi := &file_clients_proto_msgTypes[43]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetOneQueueClientResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOneQueueClientResponse) ProtoMessage() {}
+
+func (x *GetOneQueueClientResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[43]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOneQueueClientResponse.ProtoReflect.Descriptor instead.
+func (*GetOneQueueClientResponse) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{43}
+}
+
+func (x *GetOneQueueClientResponse) GetQueueClient() *OperatorQueue {
+	if x != nil {
+		return x.QueueClient
+	}
+	return nil
+}
+
+type GetChatMessagesRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	QueueId       int64                  `protobuf:"varint,1,opt,name=QueueId,proto3" json:"QueueId,omitempty"`
+	TimeZone      string                 `protobuf:"bytes,2,opt,name=TimeZone,proto3" json:"TimeZone,omitempty"`
+	OperatorId    int64                  `protobuf:"varint,3,opt,name=OperatorId,proto3" json:"OperatorId,omitempty"`
+	UserId        int64                  `protobuf:"varint,4,opt,name=UserId,proto3" json:"UserId,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChatMessagesRequest) Reset() {
+	*x = GetChatMessagesRequest{}
+	mi := &file_clients_proto_msgTypes[44]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChatMessagesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChatMessagesRequest) ProtoMessage() {}
+
+func (x *GetChatMessagesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[44]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChatMessagesRequest.ProtoReflect.Descriptor instead.
+func (*GetChatMessagesRequest) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *GetChatMessagesRequest) GetQueueId() int64 {
+	if x != nil {
+		return x.QueueId
+	}
+	return 0
+}
+
+func (x *GetChatMessagesRequest) GetTimeZone() string {
+	if x != nil {
+		return x.TimeZone
+	}
+	return ""
+}
+
+func (x *GetChatMessagesRequest) GetOperatorId() int64 {
+	if x != nil {
+		return x.OperatorId
+	}
+	return 0
+}
+
+func (x *GetChatMessagesRequest) GetUserId() int64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+type GetChatMessagesResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Messages      []*Message             `protobuf:"bytes,1,rep,name=Messages,proto3" json:"Messages,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetChatMessagesResponse) Reset() {
+	*x = GetChatMessagesResponse{}
+	mi := &file_clients_proto_msgTypes[45]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetChatMessagesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetChatMessagesResponse) ProtoMessage() {}
+
+func (x *GetChatMessagesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[45]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetChatMessagesResponse.ProtoReflect.Descriptor instead.
+func (*GetChatMessagesResponse) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{45}
+}
+
+func (x *GetChatMessagesResponse) GetMessages() []*Message {
+	if x != nil {
+		return x.Messages
+	}
+	return nil
+}
+
+type CreateMessageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Message       *Message               `protobuf:"bytes,1,opt,name=Message,proto3" json:"Message,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateMessageRequest) Reset() {
+	*x = CreateMessageRequest{}
+	mi := &file_clients_proto_msgTypes[46]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateMessageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateMessageRequest) ProtoMessage() {}
+
+func (x *CreateMessageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[46]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateMessageRequest.ProtoReflect.Descriptor instead.
+func (*CreateMessageRequest) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{46}
+}
+
+func (x *CreateMessageRequest) GetMessage() *Message {
+	if x != nil {
+		return x.Message
+	}
+	return nil
+}
+
+type CreateMessageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	MessageId     int64                  `protobuf:"varint,1,opt,name=MessageId,proto3" json:"MessageId,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateMessageResponse) Reset() {
+	*x = CreateMessageResponse{}
+	mi := &file_clients_proto_msgTypes[47]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateMessageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateMessageResponse) ProtoMessage() {}
+
+func (x *CreateMessageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[47]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateMessageResponse.ProtoReflect.Descriptor instead.
+func (*CreateMessageResponse) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{47}
+}
+
+func (x *CreateMessageResponse) GetMessageId() int64 {
+	if x != nil {
+		return x.MessageId
+	}
+	return 0
+}
+
+type CheckIsOperatorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserId        int64                  `protobuf:"varint,1,opt,name=UserId,proto3" json:"UserId,omitempty"`
+	OperatorId    int64                  `protobuf:"varint,2,opt,name=OperatorId,proto3" json:"OperatorId,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CheckIsOperatorRequest) Reset() {
+	*x = CheckIsOperatorRequest{}
+	mi := &file_clients_proto_msgTypes[48]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CheckIsOperatorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CheckIsOperatorRequest) ProtoMessage() {}
+
+func (x *CheckIsOperatorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[48]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CheckIsOperatorRequest.ProtoReflect.Descriptor instead.
+func (*CheckIsOperatorRequest) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{48}
+}
+
+func (x *CheckIsOperatorRequest) GetUserId() int64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+func (x *CheckIsOperatorRequest) GetOperatorId() int64 {
+	if x != nil {
+		return x.OperatorId
+	}
+	return 0
+}
+
+type CheckIsOperatorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	IsOperator    bool                   `protobuf:"varint,1,opt,name=IsOperator,proto3" json:"IsOperator,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CheckIsOperatorResponse) Reset() {
+	*x = CheckIsOperatorResponse{}
+	mi := &file_clients_proto_msgTypes[49]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CheckIsOperatorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CheckIsOperatorResponse) ProtoMessage() {}
+
+func (x *CheckIsOperatorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[49]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CheckIsOperatorResponse.ProtoReflect.Descriptor instead.
+func (*CheckIsOperatorResponse) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{49}
+}
+
+func (x *CheckIsOperatorResponse) GetIsOperator() bool {
+	if x != nil {
+		return x.IsOperator
+	}
+	return false
+}
+
+type NewOperatorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Operator      *Operator              `protobuf:"bytes,1,opt,name=Operator,proto3" json:"Operator,omitempty"`
+	UserId        int64                  `protobuf:"varint,2,opt,name=UserId,proto3" json:"UserId,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewOperatorRequest) Reset() {
+	*x = NewOperatorRequest{}
+	mi := &file_clients_proto_msgTypes[50]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewOperatorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewOperatorRequest) ProtoMessage() {}
+
+func (x *NewOperatorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[50]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewOperatorRequest.ProtoReflect.Descriptor instead.
+func (*NewOperatorRequest) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{50}
+}
+
+func (x *NewOperatorRequest) GetOperator() *Operator {
+	if x != nil {
+		return x.Operator
+	}
+	return nil
+}
+
+func (x *NewOperatorRequest) GetUserId() int64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+type NewOperatorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	OperatorId    int64                  `protobuf:"varint,1,opt,name=OperatorId,proto3" json:"OperatorId,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *NewOperatorResponse) Reset() {
+	*x = NewOperatorResponse{}
+	mi := &file_clients_proto_msgTypes[51]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *NewOperatorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*NewOperatorResponse) ProtoMessage() {}
+
+func (x *NewOperatorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[51]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use NewOperatorResponse.ProtoReflect.Descriptor instead.
+func (*NewOperatorResponse) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{51}
+}
+
+func (x *NewOperatorResponse) GetOperatorId() int64 {
+	if x != nil {
+		return x.OperatorId
+	}
+	return 0
+}
+
+type GetAssistantOperatorsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	AssistantId   int64                  `protobuf:"varint,1,opt,name=AssistantId,proto3" json:"AssistantId,omitempty"`
+	UserId        int64                  `protobuf:"varint,2,opt,name=UserId,proto3" json:"UserId,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAssistantOperatorsRequest) Reset() {
+	*x = GetAssistantOperatorsRequest{}
+	mi := &file_clients_proto_msgTypes[52]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAssistantOperatorsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAssistantOperatorsRequest) ProtoMessage() {}
+
+func (x *GetAssistantOperatorsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[52]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAssistantOperatorsRequest.ProtoReflect.Descriptor instead.
+func (*GetAssistantOperatorsRequest) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{52}
+}
+
+func (x *GetAssistantOperatorsRequest) GetAssistantId() int64 {
+	if x != nil {
+		return x.AssistantId
+	}
+	return 0
+}
+
+func (x *GetAssistantOperatorsRequest) GetUserId() int64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+type GetAssistantOperatorsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Operators     []*Operator            `protobuf:"bytes,1,rep,name=Operators,proto3" json:"Operators,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetAssistantOperatorsResponse) Reset() {
+	*x = GetAssistantOperatorsResponse{}
+	mi := &file_clients_proto_msgTypes[53]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetAssistantOperatorsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetAssistantOperatorsResponse) ProtoMessage() {}
+
+func (x *GetAssistantOperatorsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[53]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetAssistantOperatorsResponse.ProtoReflect.Descriptor instead.
+func (*GetAssistantOperatorsResponse) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{53}
+}
+
+func (x *GetAssistantOperatorsResponse) GetOperators() []*Operator {
+	if x != nil {
+		return x.Operators
 	}
 	return nil
 }
@@ -1765,7 +3069,52 @@ const file_clients_proto_rawDesc = "" +
 	"\x0fAssistantAnswer\x18\x03 \x01(\tR\x0fAssistantAnswer\x12 \n" +
 	"\vUserComment\x18\x04 \x01(\tR\vUserComment\x12 \n" +
 	"\vAssistantId\x18\x05 \x01(\x03R\vAssistantId\x12\x1a\n" +
-	"\bChunksId\x18\x06 \x03(\tR\bChunksId\"z\n" +
+	"\bChunksId\x18\x06 \x03(\tR\bChunksId\"\xfc\x02\n" +
+	"\bOperator\x12\x0e\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\x12\x16\n" +
+	"\x06UserId\x18\x02 \x01(\x03R\x06UserId\x12 \n" +
+	"\vAssistantId\x18\x03 \x01(\x03R\vAssistantId\x12$\n" +
+	"\rAssistantName\x18\x04 \x01(\tR\rAssistantName\x12\x12\n" +
+	"\x04Name\x18\x05 \x01(\tR\x04Name\x12>\n" +
+	"\fLastCallTime\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\fLastCallTime\x12\x16\n" +
+	"\x06IsBusy\x18\a \x01(\bR\x06IsBusy\x128\n" +
+	"\tCreatedAt\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tCreatedAt\x12$\n" +
+	"\rAverageRating\x18\t \x01(\x02R\rAverageRating\x124\n" +
+	"\x15ServicedClientsAmount\x18\n" +
+	" \x01(\x03R\x15ServicedClientsAmount\"\xdb\x02\n" +
+	"\rOperatorQueue\x12\x0e\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\x12\x1e\n" +
+	"\n" +
+	"OperatorId\x18\x02 \x01(\x03R\n" +
+	"OperatorId\x12\x1a\n" +
+	"\bClientId\x18\x03 \x01(\tR\bClientId\x12\x18\n" +
+	"\aProblem\x18\x04 \x01(\tR\aProblem\x12\x16\n" +
+	"\x06Status\x18\x05 \x01(\tR\x06Status\x128\n" +
+	"\tCreatedAt\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tCreatedAt\x12:\n" +
+	"\n" +
+	"ServicedAt\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\n" +
+	"ServicedAt\x12&\n" +
+	"\x0eClientPlatform\x18\b \x01(\tR\x0eClientPlatform\x12\x16\n" +
+	"\x06Rating\x18\t \x01(\x03R\x06Rating\x12\x16\n" +
+	"\x06ChatId\x18\n" +
+	" \x01(\x03R\x06ChatId\"\xa2\x02\n" +
+	"\x04Chat\x12\x0e\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\x12\x18\n" +
+	"\aQueueId\x18\x02 \x01(\x03R\aQueueId\x12\x1a\n" +
+	"\bClientId\x18\x03 \x01(\tR\bClientId\x128\n" +
+	"\tCreatedAt\x18\x04 \x01(\v2\x1a.google.protobuf.TimestampR\tCreatedAt\x12 \n" +
+	"\vQueueStatus\x18\x05 \x01(\tR\vQueueStatus\x12\"\n" +
+	"\fQueueProblem\x18\x06 \x01(\tR\fQueueProblem\x122\n" +
+	"\x14UnreadMessagesAmount\x18\a \x01(\x03R\x14UnreadMessagesAmount\x12 \n" +
+	"\vLastMessage\x18\b \x01(\tR\vLastMessage\"\xdf\x01\n" +
+	"\aMessage\x12\x0e\n" +
+	"\x02Id\x18\x01 \x01(\x03R\x02Id\x12\x16\n" +
+	"\x06ChatId\x18\x02 \x01(\x03R\x06ChatId\x12\x12\n" +
+	"\x04Text\x18\x03 \x01(\tR\x04Text\x12\x12\n" +
+	"\x04Role\x18\x04 \x01(\tR\x04Role\x12\x16\n" +
+	"\x06IsRead\x18\x05 \x01(\bR\x06IsRead\x122\n" +
+	"\x06SentAt\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\x06SentAt\x128\n" +
+	"\tExpiresAt\x18\a \x01(\v2\x1a.google.protobuf.TimestampR\tExpiresAt\"z\n" +
 	"\x16CreateAssistantRequest\x12\x16\n" +
 	"\x06UserId\x18\x01 \x01(\x03R\x06UserId\x12\x12\n" +
 	"\x04Name\x18\x02 \x01(\tR\x04Name\x12\x10\n" +
@@ -1848,7 +3197,64 @@ const file_clients_proto_rawDesc = "" +
 	"\x1fGetUserAssistantsAppealsRequest\x12\x16\n" +
 	"\x06UserId\x18\x01 \x01(\x03R\x06UserId\"E\n" +
 	" GetUserAssistantsAppealsResponse\x12!\n" +
-	"\aAppeals\x18\x01 \x03(\v2\a.AppealR\aAppeals2\x96\b\n" +
+	"\aAppeals\x18\x01 \x03(\v2\a.AppealR\aAppeals\"\xcb\x01\n" +
+	"\x17AddClientToQueueRequest\x12\x1a\n" +
+	"\bClientId\x18\x01 \x01(\tR\bClientId\x12 \n" +
+	"\vAssistantId\x18\x02 \x01(\x03R\vAssistantId\x12\x18\n" +
+	"\aProblem\x18\x03 \x01(\tR\aProblem\x12&\n" +
+	"\x0eClientPlatform\x18\x04 \x01(\tR\x0eClientPlatform\x120\n" +
+	"\x0eDialogMessages\x18\x05 \x03(\v2\b.MessageR\x0eDialogMessages\"4\n" +
+	"\x18AddClientToQueueResponse\x12\x18\n" +
+	"\aQueueId\x18\x01 \x01(\x03R\aQueueId\"Q\n" +
+	"\x17GetOperatorChatsRequest\x12\x1e\n" +
+	"\n" +
+	"OperatorId\x18\x01 \x01(\x03R\n" +
+	"OperatorId\x12\x16\n" +
+	"\x06UserId\x18\x02 \x01(\x03R\x06UserId\"7\n" +
+	"\x18GetOperatorChatsResponse\x12\x1b\n" +
+	"\x05Chats\x18\x01 \x03(\v2\x05.ChatR\x05Chats\"1\n" +
+	"\x17GetUserOperatorsRequest\x12\x16\n" +
+	"\x06UserId\x18\x01 \x01(\x03R\x06UserId\"C\n" +
+	"\x18GetUserOperatorsResponse\x12'\n" +
+	"\tOperators\x18\x01 \x03(\v2\t.OperatorR\tOperators\"4\n" +
+	"\x18GetOneQueueClientRequest\x12\x18\n" +
+	"\aQueueId\x18\x01 \x01(\x03R\aQueueId\"M\n" +
+	"\x19GetOneQueueClientResponse\x120\n" +
+	"\vQueueClient\x18\x01 \x01(\v2\x0e.OperatorQueueR\vQueueClient\"\x86\x01\n" +
+	"\x16GetChatMessagesRequest\x12\x18\n" +
+	"\aQueueId\x18\x01 \x01(\x03R\aQueueId\x12\x1a\n" +
+	"\bTimeZone\x18\x02 \x01(\tR\bTimeZone\x12\x1e\n" +
+	"\n" +
+	"OperatorId\x18\x03 \x01(\x03R\n" +
+	"OperatorId\x12\x16\n" +
+	"\x06UserId\x18\x04 \x01(\x03R\x06UserId\"?\n" +
+	"\x17GetChatMessagesResponse\x12$\n" +
+	"\bMessages\x18\x01 \x03(\v2\b.MessageR\bMessages\":\n" +
+	"\x14CreateMessageRequest\x12\"\n" +
+	"\aMessage\x18\x01 \x01(\v2\b.MessageR\aMessage\"5\n" +
+	"\x15CreateMessageResponse\x12\x1c\n" +
+	"\tMessageId\x18\x01 \x01(\x03R\tMessageId\"P\n" +
+	"\x16CheckIsOperatorRequest\x12\x16\n" +
+	"\x06UserId\x18\x01 \x01(\x03R\x06UserId\x12\x1e\n" +
+	"\n" +
+	"OperatorId\x18\x02 \x01(\x03R\n" +
+	"OperatorId\"9\n" +
+	"\x17CheckIsOperatorResponse\x12\x1e\n" +
+	"\n" +
+	"IsOperator\x18\x01 \x01(\bR\n" +
+	"IsOperator\"S\n" +
+	"\x12NewOperatorRequest\x12%\n" +
+	"\bOperator\x18\x01 \x01(\v2\t.OperatorR\bOperator\x12\x16\n" +
+	"\x06UserId\x18\x02 \x01(\x03R\x06UserId\"5\n" +
+	"\x13NewOperatorResponse\x12\x1e\n" +
+	"\n" +
+	"OperatorId\x18\x01 \x01(\x03R\n" +
+	"OperatorId\"X\n" +
+	"\x1cGetAssistantOperatorsRequest\x12 \n" +
+	"\vAssistantId\x18\x01 \x01(\x03R\vAssistantId\x12\x16\n" +
+	"\x06UserId\x18\x02 \x01(\x03R\x06UserId\"H\n" +
+	"\x1dGetAssistantOperatorsResponse\x12'\n" +
+	"\tOperators\x18\x01 \x03(\v2\t.OperatorR\tOperators2\xc3\f\n" +
 	"\aClients\x12D\n" +
 	"\x0fCreateAssistant\x12\x17.CreateAssistantRequest\x1a\x18.CreateAssistantResponse\x128\n" +
 	"\vAddDocument\x12\x13.AddDocumentRequest\x1a\x14.AddDocumentResponse\x12D\n" +
@@ -1864,7 +3270,15 @@ const file_clients_proto_rawDesc = "" +
 	"\x11DeleteGivenAnswer\x12\x19.DeleteGivenAnswerRequest\x1a\x1a.DeleteGivenAnswerResponse\x12;\n" +
 	"\fCreateAppeal\x12\x14.CreateAppealRequest\x1a\x15.CreateAppealResponse\x12P\n" +
 	"\x13GetAssistantAppeals\x12\x1b.GetAssistantAppealsRequest\x1a\x1c.GetAssistantAppealsResponse\x12_\n" +
-	"\x18GetUserAssistantsAppeals\x12 .GetUserAssistantsAppealsRequest\x1a!.GetUserAssistantsAppealsResponseB\tZ\a.;protob\x06proto3"
+	"\x18GetUserAssistantsAppeals\x12 .GetUserAssistantsAppealsRequest\x1a!.GetUserAssistantsAppealsResponse\x12G\n" +
+	"\x10AddClientToQueue\x12\x18.AddClientToQueueRequest\x1a\x19.AddClientToQueueResponse\x12G\n" +
+	"\x10GetOperatorChats\x12\x18.GetOperatorChatsRequest\x1a\x19.GetOperatorChatsResponse\x12G\n" +
+	"\x10GetUserOperators\x12\x18.GetUserOperatorsRequest\x1a\x19.GetUserOperatorsResponse\x12J\n" +
+	"\x11GetOneQueueClient\x12\x19.GetOneQueueClientRequest\x1a\x1a.GetOneQueueClientResponse\x12D\n" +
+	"\x0fGetChatMessages\x12\x17.GetChatMessagesRequest\x1a\x18.GetChatMessagesResponse\x12>\n" +
+	"\rCreateMessage\x12\x15.CreateMessageRequest\x1a\x16.CreateMessageResponse\x12D\n" +
+	"\x0fCheckIsOperator\x12\x17.CheckIsOperatorRequest\x1a\x18.CheckIsOperatorResponse\x128\n" +
+	"\vNewOperator\x12\x13.NewOperatorRequest\x1a\x14.NewOperatorResponseB\tZ\a.;protob\x06proto3"
 
 var (
 	file_clients_proto_rawDescOnce sync.Once
@@ -1878,83 +3292,136 @@ func file_clients_proto_rawDescGZIP() []byte {
 	return file_clients_proto_rawDescData
 }
 
-var file_clients_proto_msgTypes = make([]protoimpl.MessageInfo, 32)
+var file_clients_proto_msgTypes = make([]protoimpl.MessageInfo, 54)
 var file_clients_proto_goTypes = []any{
 	(*Assistant)(nil),                        // 0: Assistant
 	(*Document)(nil),                         // 1: Document
 	(*GivenAnswer)(nil),                      // 2: GivenAnswer
 	(*Appeal)(nil),                           // 3: Appeal
-	(*CreateAssistantRequest)(nil),           // 4: CreateAssistantRequest
-	(*CreateAssistantResponse)(nil),          // 5: CreateAssistantResponse
-	(*AddDocumentRequest)(nil),               // 6: AddDocumentRequest
-	(*AddDocumentResponse)(nil),              // 7: AddDocumentResponse
-	(*DeleteAssistantRequest)(nil),           // 8: DeleteAssistantRequest
-	(*DeleteAssistantResponse)(nil),          // 9: DeleteAssistantResponse
-	(*DeleteDocumentRequest)(nil),            // 10: DeleteDocumentRequest
-	(*DeleteDocumentResponse)(nil),           // 11: DeleteDocumentResponse
-	(*GetOneAssistantRequest)(nil),           // 12: GetOneAssistantRequest
-	(*GetOneAssistantResponse)(nil),          // 13: GetOneAssistantResponse
-	(*GetUserAssistantsRequest)(nil),         // 14: GetUserAssistantsRequest
-	(*GetUserAssistantsResponse)(nil),        // 15: GetUserAssistantsResponse
-	(*GetAssistantDocumentsRequest)(nil),     // 16: GetAssistantDocumentsRequest
-	(*GetAssistantDocumentsResponse)(nil),    // 17: GetAssistantDocumentsResponse
-	(*UpdateAssistantRequest)(nil),           // 18: UpdateAssistantRequest
-	(*UpdateAssistantResponse)(nil),          // 19: UpdateAssistantResponse
-	(*GiveAnswerRequest)(nil),                // 20: GiveAnswerRequest
-	(*GiveAnswerResponse)(nil),               // 21: GiveAnswerResponse
-	(*GetAssistantGivenAnswersRequest)(nil),  // 22: GetAssistantGivenAnswersRequest
-	(*GetAssistantGivenAnswersResponse)(nil), // 23: GetAssistantGivenAnswersResponse
-	(*DeleteGivenAnswerRequest)(nil),         // 24: DeleteGivenAnswerRequest
-	(*DeleteGivenAnswerResponse)(nil),        // 25: DeleteGivenAnswerResponse
-	(*CreateAppealRequest)(nil),              // 26: CreateAppealRequest
-	(*CreateAppealResponse)(nil),             // 27: CreateAppealResponse
-	(*GetAssistantAppealsRequest)(nil),       // 28: GetAssistantAppealsRequest
-	(*GetAssistantAppealsResponse)(nil),      // 29: GetAssistantAppealsResponse
-	(*GetUserAssistantsAppealsRequest)(nil),  // 30: GetUserAssistantsAppealsRequest
-	(*GetUserAssistantsAppealsResponse)(nil), // 31: GetUserAssistantsAppealsResponse
-	(*timestamppb.Timestamp)(nil),            // 32: google.protobuf.Timestamp
+	(*Operator)(nil),                         // 4: Operator
+	(*OperatorQueue)(nil),                    // 5: OperatorQueue
+	(*Chat)(nil),                             // 6: Chat
+	(*Message)(nil),                          // 7: Message
+	(*CreateAssistantRequest)(nil),           // 8: CreateAssistantRequest
+	(*CreateAssistantResponse)(nil),          // 9: CreateAssistantResponse
+	(*AddDocumentRequest)(nil),               // 10: AddDocumentRequest
+	(*AddDocumentResponse)(nil),              // 11: AddDocumentResponse
+	(*DeleteAssistantRequest)(nil),           // 12: DeleteAssistantRequest
+	(*DeleteAssistantResponse)(nil),          // 13: DeleteAssistantResponse
+	(*DeleteDocumentRequest)(nil),            // 14: DeleteDocumentRequest
+	(*DeleteDocumentResponse)(nil),           // 15: DeleteDocumentResponse
+	(*GetOneAssistantRequest)(nil),           // 16: GetOneAssistantRequest
+	(*GetOneAssistantResponse)(nil),          // 17: GetOneAssistantResponse
+	(*GetUserAssistantsRequest)(nil),         // 18: GetUserAssistantsRequest
+	(*GetUserAssistantsResponse)(nil),        // 19: GetUserAssistantsResponse
+	(*GetAssistantDocumentsRequest)(nil),     // 20: GetAssistantDocumentsRequest
+	(*GetAssistantDocumentsResponse)(nil),    // 21: GetAssistantDocumentsResponse
+	(*UpdateAssistantRequest)(nil),           // 22: UpdateAssistantRequest
+	(*UpdateAssistantResponse)(nil),          // 23: UpdateAssistantResponse
+	(*GiveAnswerRequest)(nil),                // 24: GiveAnswerRequest
+	(*GiveAnswerResponse)(nil),               // 25: GiveAnswerResponse
+	(*GetAssistantGivenAnswersRequest)(nil),  // 26: GetAssistantGivenAnswersRequest
+	(*GetAssistantGivenAnswersResponse)(nil), // 27: GetAssistantGivenAnswersResponse
+	(*DeleteGivenAnswerRequest)(nil),         // 28: DeleteGivenAnswerRequest
+	(*DeleteGivenAnswerResponse)(nil),        // 29: DeleteGivenAnswerResponse
+	(*CreateAppealRequest)(nil),              // 30: CreateAppealRequest
+	(*CreateAppealResponse)(nil),             // 31: CreateAppealResponse
+	(*GetAssistantAppealsRequest)(nil),       // 32: GetAssistantAppealsRequest
+	(*GetAssistantAppealsResponse)(nil),      // 33: GetAssistantAppealsResponse
+	(*GetUserAssistantsAppealsRequest)(nil),  // 34: GetUserAssistantsAppealsRequest
+	(*GetUserAssistantsAppealsResponse)(nil), // 35: GetUserAssistantsAppealsResponse
+	(*AddClientToQueueRequest)(nil),          // 36: AddClientToQueueRequest
+	(*AddClientToQueueResponse)(nil),         // 37: AddClientToQueueResponse
+	(*GetOperatorChatsRequest)(nil),          // 38: GetOperatorChatsRequest
+	(*GetOperatorChatsResponse)(nil),         // 39: GetOperatorChatsResponse
+	(*GetUserOperatorsRequest)(nil),          // 40: GetUserOperatorsRequest
+	(*GetUserOperatorsResponse)(nil),         // 41: GetUserOperatorsResponse
+	(*GetOneQueueClientRequest)(nil),         // 42: GetOneQueueClientRequest
+	(*GetOneQueueClientResponse)(nil),        // 43: GetOneQueueClientResponse
+	(*GetChatMessagesRequest)(nil),           // 44: GetChatMessagesRequest
+	(*GetChatMessagesResponse)(nil),          // 45: GetChatMessagesResponse
+	(*CreateMessageRequest)(nil),             // 46: CreateMessageRequest
+	(*CreateMessageResponse)(nil),            // 47: CreateMessageResponse
+	(*CheckIsOperatorRequest)(nil),           // 48: CheckIsOperatorRequest
+	(*CheckIsOperatorResponse)(nil),          // 49: CheckIsOperatorResponse
+	(*NewOperatorRequest)(nil),               // 50: NewOperatorRequest
+	(*NewOperatorResponse)(nil),              // 51: NewOperatorResponse
+	(*GetAssistantOperatorsRequest)(nil),     // 52: GetAssistantOperatorsRequest
+	(*GetAssistantOperatorsResponse)(nil),    // 53: GetAssistantOperatorsResponse
+	(*timestamppb.Timestamp)(nil),            // 54: google.protobuf.Timestamp
 }
 var file_clients_proto_depIdxs = []int32{
-	32, // 0: Assistant.CreatedAt:type_name -> google.protobuf.Timestamp
-	0,  // 1: GetOneAssistantResponse.Assistant:type_name -> Assistant
-	0,  // 2: GetUserAssistantsResponse.Assistants:type_name -> Assistant
-	1,  // 3: GetAssistantDocumentsResponse.Documents:type_name -> Document
-	2,  // 4: GetAssistantGivenAnswersResponse.GivenAnswers:type_name -> GivenAnswer
-	3,  // 5: GetAssistantAppealsResponse.Appeals:type_name -> Appeal
-	3,  // 6: GetUserAssistantsAppealsResponse.Appeals:type_name -> Appeal
-	4,  // 7: Clients.CreateAssistant:input_type -> CreateAssistantRequest
-	6,  // 8: Clients.AddDocument:input_type -> AddDocumentRequest
-	8,  // 9: Clients.DeleteAssistant:input_type -> DeleteAssistantRequest
-	10, // 10: Clients.DeleteDocument:input_type -> DeleteDocumentRequest
-	12, // 11: Clients.GetOneAssistant:input_type -> GetOneAssistantRequest
-	14, // 12: Clients.GetUserAssistants:input_type -> GetUserAssistantsRequest
-	16, // 13: Clients.GetAssistantDocuments:input_type -> GetAssistantDocumentsRequest
-	18, // 14: Clients.UpdateAssistant:input_type -> UpdateAssistantRequest
-	20, // 15: Clients.GiveAnswer:input_type -> GiveAnswerRequest
-	22, // 16: Clients.GetAssistantGivenAnswers:input_type -> GetAssistantGivenAnswersRequest
-	24, // 17: Clients.DeleteGivenAnswer:input_type -> DeleteGivenAnswerRequest
-	26, // 18: Clients.CreateAppeal:input_type -> CreateAppealRequest
-	28, // 19: Clients.GetAssistantAppeals:input_type -> GetAssistantAppealsRequest
-	30, // 20: Clients.GetUserAssistantsAppeals:input_type -> GetUserAssistantsAppealsRequest
-	5,  // 21: Clients.CreateAssistant:output_type -> CreateAssistantResponse
-	7,  // 22: Clients.AddDocument:output_type -> AddDocumentResponse
-	9,  // 23: Clients.DeleteAssistant:output_type -> DeleteAssistantResponse
-	11, // 24: Clients.DeleteDocument:output_type -> DeleteDocumentResponse
-	13, // 25: Clients.GetOneAssistant:output_type -> GetOneAssistantResponse
-	15, // 26: Clients.GetUserAssistants:output_type -> GetUserAssistantsResponse
-	17, // 27: Clients.GetAssistantDocuments:output_type -> GetAssistantDocumentsResponse
-	19, // 28: Clients.UpdateAssistant:output_type -> UpdateAssistantResponse
-	21, // 29: Clients.GiveAnswer:output_type -> GiveAnswerResponse
-	23, // 30: Clients.GetAssistantGivenAnswers:output_type -> GetAssistantGivenAnswersResponse
-	25, // 31: Clients.DeleteGivenAnswer:output_type -> DeleteGivenAnswerResponse
-	27, // 32: Clients.CreateAppeal:output_type -> CreateAppealResponse
-	29, // 33: Clients.GetAssistantAppeals:output_type -> GetAssistantAppealsResponse
-	31, // 34: Clients.GetUserAssistantsAppeals:output_type -> GetUserAssistantsAppealsResponse
-	21, // [21:35] is the sub-list for method output_type
-	7,  // [7:21] is the sub-list for method input_type
-	7,  // [7:7] is the sub-list for extension type_name
-	7,  // [7:7] is the sub-list for extension extendee
-	0,  // [0:7] is the sub-list for field type_name
+	54, // 0: Assistant.CreatedAt:type_name -> google.protobuf.Timestamp
+	54, // 1: Operator.LastCallTime:type_name -> google.protobuf.Timestamp
+	54, // 2: Operator.CreatedAt:type_name -> google.protobuf.Timestamp
+	54, // 3: OperatorQueue.CreatedAt:type_name -> google.protobuf.Timestamp
+	54, // 4: OperatorQueue.ServicedAt:type_name -> google.protobuf.Timestamp
+	54, // 5: Chat.CreatedAt:type_name -> google.protobuf.Timestamp
+	54, // 6: Message.SentAt:type_name -> google.protobuf.Timestamp
+	54, // 7: Message.ExpiresAt:type_name -> google.protobuf.Timestamp
+	0,  // 8: GetOneAssistantResponse.Assistant:type_name -> Assistant
+	0,  // 9: GetUserAssistantsResponse.Assistants:type_name -> Assistant
+	1,  // 10: GetAssistantDocumentsResponse.Documents:type_name -> Document
+	2,  // 11: GetAssistantGivenAnswersResponse.GivenAnswers:type_name -> GivenAnswer
+	3,  // 12: GetAssistantAppealsResponse.Appeals:type_name -> Appeal
+	3,  // 13: GetUserAssistantsAppealsResponse.Appeals:type_name -> Appeal
+	7,  // 14: AddClientToQueueRequest.DialogMessages:type_name -> Message
+	6,  // 15: GetOperatorChatsResponse.Chats:type_name -> Chat
+	4,  // 16: GetUserOperatorsResponse.Operators:type_name -> Operator
+	5,  // 17: GetOneQueueClientResponse.QueueClient:type_name -> OperatorQueue
+	7,  // 18: GetChatMessagesResponse.Messages:type_name -> Message
+	7,  // 19: CreateMessageRequest.Message:type_name -> Message
+	4,  // 20: NewOperatorRequest.Operator:type_name -> Operator
+	4,  // 21: GetAssistantOperatorsResponse.Operators:type_name -> Operator
+	8,  // 22: Clients.CreateAssistant:input_type -> CreateAssistantRequest
+	10, // 23: Clients.AddDocument:input_type -> AddDocumentRequest
+	12, // 24: Clients.DeleteAssistant:input_type -> DeleteAssistantRequest
+	14, // 25: Clients.DeleteDocument:input_type -> DeleteDocumentRequest
+	16, // 26: Clients.GetOneAssistant:input_type -> GetOneAssistantRequest
+	18, // 27: Clients.GetUserAssistants:input_type -> GetUserAssistantsRequest
+	20, // 28: Clients.GetAssistantDocuments:input_type -> GetAssistantDocumentsRequest
+	22, // 29: Clients.UpdateAssistant:input_type -> UpdateAssistantRequest
+	24, // 30: Clients.GiveAnswer:input_type -> GiveAnswerRequest
+	26, // 31: Clients.GetAssistantGivenAnswers:input_type -> GetAssistantGivenAnswersRequest
+	28, // 32: Clients.DeleteGivenAnswer:input_type -> DeleteGivenAnswerRequest
+	30, // 33: Clients.CreateAppeal:input_type -> CreateAppealRequest
+	32, // 34: Clients.GetAssistantAppeals:input_type -> GetAssistantAppealsRequest
+	34, // 35: Clients.GetUserAssistantsAppeals:input_type -> GetUserAssistantsAppealsRequest
+	36, // 36: Clients.AddClientToQueue:input_type -> AddClientToQueueRequest
+	38, // 37: Clients.GetOperatorChats:input_type -> GetOperatorChatsRequest
+	40, // 38: Clients.GetUserOperators:input_type -> GetUserOperatorsRequest
+	42, // 39: Clients.GetOneQueueClient:input_type -> GetOneQueueClientRequest
+	44, // 40: Clients.GetChatMessages:input_type -> GetChatMessagesRequest
+	46, // 41: Clients.CreateMessage:input_type -> CreateMessageRequest
+	48, // 42: Clients.CheckIsOperator:input_type -> CheckIsOperatorRequest
+	50, // 43: Clients.NewOperator:input_type -> NewOperatorRequest
+	9,  // 44: Clients.CreateAssistant:output_type -> CreateAssistantResponse
+	11, // 45: Clients.AddDocument:output_type -> AddDocumentResponse
+	13, // 46: Clients.DeleteAssistant:output_type -> DeleteAssistantResponse
+	15, // 47: Clients.DeleteDocument:output_type -> DeleteDocumentResponse
+	17, // 48: Clients.GetOneAssistant:output_type -> GetOneAssistantResponse
+	19, // 49: Clients.GetUserAssistants:output_type -> GetUserAssistantsResponse
+	21, // 50: Clients.GetAssistantDocuments:output_type -> GetAssistantDocumentsResponse
+	23, // 51: Clients.UpdateAssistant:output_type -> UpdateAssistantResponse
+	25, // 52: Clients.GiveAnswer:output_type -> GiveAnswerResponse
+	27, // 53: Clients.GetAssistantGivenAnswers:output_type -> GetAssistantGivenAnswersResponse
+	29, // 54: Clients.DeleteGivenAnswer:output_type -> DeleteGivenAnswerResponse
+	31, // 55: Clients.CreateAppeal:output_type -> CreateAppealResponse
+	33, // 56: Clients.GetAssistantAppeals:output_type -> GetAssistantAppealsResponse
+	35, // 57: Clients.GetUserAssistantsAppeals:output_type -> GetUserAssistantsAppealsResponse
+	37, // 58: Clients.AddClientToQueue:output_type -> AddClientToQueueResponse
+	39, // 59: Clients.GetOperatorChats:output_type -> GetOperatorChatsResponse
+	41, // 60: Clients.GetUserOperators:output_type -> GetUserOperatorsResponse
+	43, // 61: Clients.GetOneQueueClient:output_type -> GetOneQueueClientResponse
+	45, // 62: Clients.GetChatMessages:output_type -> GetChatMessagesResponse
+	47, // 63: Clients.CreateMessage:output_type -> CreateMessageResponse
+	49, // 64: Clients.CheckIsOperator:output_type -> CheckIsOperatorResponse
+	51, // 65: Clients.NewOperator:output_type -> NewOperatorResponse
+	44, // [44:66] is the sub-list for method output_type
+	22, // [22:44] is the sub-list for method input_type
+	22, // [22:22] is the sub-list for extension type_name
+	22, // [22:22] is the sub-list for extension extendee
+	0,  // [0:22] is the sub-list for field type_name
 }
 
 func init() { file_clients_proto_init() }
@@ -1968,7 +3435,7 @@ func file_clients_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_clients_proto_rawDesc), len(file_clients_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   32,
+			NumMessages:   54,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
