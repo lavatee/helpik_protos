@@ -249,7 +249,7 @@ message AddClientToQueueRequest {
 }
 
 message AddClientToQueueResponse {
-    int64 QueueId = 1;
+    int64 ChatId = 1;
 }
 
 message GetOperatorChatsRequest {

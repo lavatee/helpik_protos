@@ -2236,7 +2236,7 @@ func (x *AddClientToQueueRequest) GetDialogMessages() []*Message {
 
 type AddClientToQueueResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	QueueId       int64                  `protobuf:"varint,1,opt,name=QueueId,proto3" json:"QueueId,omitempty"`
+	ChatId        int64                  `protobuf:"varint,1,opt,name=ChatId,proto3" json:"ChatId,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2271,9 +2271,9 @@ func (*AddClientToQueueResponse) Descriptor() ([]byte, []int) {
 	return file_clients_proto_rawDescGZIP(), []int{37}
 }
 
-func (x *AddClientToQueueResponse) GetQueueId() int64 {
+func (x *AddClientToQueueResponse) GetChatId() int64 {
 	if x != nil {
-		return x.QueueId
+		return x.ChatId
 	}
 	return 0
 }
@@ -3203,9 +3203,9 @@ const file_clients_proto_rawDesc = "" +
 	"\vAssistantId\x18\x02 \x01(\x03R\vAssistantId\x12\x18\n" +
 	"\aProblem\x18\x03 \x01(\tR\aProblem\x12&\n" +
 	"\x0eClientPlatform\x18\x04 \x01(\tR\x0eClientPlatform\x120\n" +
-	"\x0eDialogMessages\x18\x05 \x03(\v2\b.MessageR\x0eDialogMessages\"4\n" +
-	"\x18AddClientToQueueResponse\x12\x18\n" +
-	"\aQueueId\x18\x01 \x01(\x03R\aQueueId\"Q\n" +
+	"\x0eDialogMessages\x18\x05 \x03(\v2\b.MessageR\x0eDialogMessages\"2\n" +
+	"\x18AddClientToQueueResponse\x12\x16\n" +
+	"\x06ChatId\x18\x01 \x01(\x03R\x06ChatId\"Q\n" +
 	"\x17GetOperatorChatsRequest\x12\x1e\n" +
 	"\n" +
 	"OperatorId\x18\x01 \x01(\x03R\n" +
