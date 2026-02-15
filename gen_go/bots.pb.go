@@ -465,6 +465,118 @@ func (x *UpdateAssistantBotResponse) GetBotId() int64 {
 	return 0
 }
 
+type SendMessageRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Platform      string                 `protobuf:"bytes,1,opt,name=Platform,proto3" json:"Platform,omitempty"`
+	ClientId      string                 `protobuf:"bytes,2,opt,name=ClientId,proto3" json:"ClientId,omitempty"`
+	Text          string                 `protobuf:"bytes,3,opt,name=Text,proto3" json:"Text,omitempty"`
+	AssistantId   int64                  `protobuf:"varint,4,opt,name=AssistantId,proto3" json:"AssistantId,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendMessageRequest) Reset() {
+	*x = SendMessageRequest{}
+	mi := &file_bots_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendMessageRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendMessageRequest) ProtoMessage() {}
+
+func (x *SendMessageRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_bots_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendMessageRequest.ProtoReflect.Descriptor instead.
+func (*SendMessageRequest) Descriptor() ([]byte, []int) {
+	return file_bots_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *SendMessageRequest) GetPlatform() string {
+	if x != nil {
+		return x.Platform
+	}
+	return ""
+}
+
+func (x *SendMessageRequest) GetClientId() string {
+	if x != nil {
+		return x.ClientId
+	}
+	return ""
+}
+
+func (x *SendMessageRequest) GetText() string {
+	if x != nil {
+		return x.Text
+	}
+	return ""
+}
+
+func (x *SendMessageRequest) GetAssistantId() int64 {
+	if x != nil {
+		return x.AssistantId
+	}
+	return 0
+}
+
+type SendMessageResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Status        string                 `protobuf:"bytes,1,opt,name=Status,proto3" json:"Status,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *SendMessageResponse) Reset() {
+	*x = SendMessageResponse{}
+	mi := &file_bots_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *SendMessageResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*SendMessageResponse) ProtoMessage() {}
+
+func (x *SendMessageResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_bots_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use SendMessageResponse.ProtoReflect.Descriptor instead.
+func (*SendMessageResponse) Descriptor() ([]byte, []int) {
+	return file_bots_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *SendMessageResponse) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
 var File_bots_proto protoreflect.FileDescriptor
 
 const file_bots_proto_rawDesc = "" +
@@ -494,12 +606,20 @@ const file_bots_proto_rawDesc = "" +
 	"\bPlatform\x18\x02 \x01(\tR\bPlatform\x12\x14\n" +
 	"\x05Token\x18\x03 \x01(\tR\x05Token\"2\n" +
 	"\x1aUpdateAssistantBotResponse\x12\x14\n" +
-	"\x05BotId\x18\x01 \x01(\x03R\x05BotId2\xb3\x02\n" +
+	"\x05BotId\x18\x01 \x01(\x03R\x05BotId\"\x82\x01\n" +
+	"\x12SendMessageRequest\x12\x1a\n" +
+	"\bPlatform\x18\x01 \x01(\tR\bPlatform\x12\x1a\n" +
+	"\bClientId\x18\x02 \x01(\tR\bClientId\x12\x12\n" +
+	"\x04Text\x18\x03 \x01(\tR\x04Text\x12 \n" +
+	"\vAssistantId\x18\x04 \x01(\x03R\vAssistantId\"-\n" +
+	"\x13SendMessageResponse\x12\x16\n" +
+	"\x06Status\x18\x01 \x01(\tR\x06Status2\xed\x02\n" +
 	"\x04Bots\x12G\n" +
 	"\x10GetAssistantBots\x12\x18.GetAssistantBotsRequest\x1a\x19.GetAssistantBotsResponse\x12D\n" +
 	"\x0fAddAssistantBot\x12\x17.AddAssistantBotRequest\x1a\x18.AddAssistantBotResponse\x12M\n" +
 	"\x12DeleteAssistantBot\x12\x1a.DeleteAssistantBotRequest\x1a\x1b.DeleteAssistantBotResponse\x12M\n" +
-	"\x12UpdateAssistantBot\x12\x1a.UpdateAssistantBotRequest\x1a\x1b.UpdateAssistantBotResponseB\tZ\a.;protob\x06proto3"
+	"\x12UpdateAssistantBot\x12\x1a.UpdateAssistantBotRequest\x1a\x1b.UpdateAssistantBotResponse\x128\n" +
+	"\vSendMessage\x12\x13.SendMessageRequest\x1a\x14.SendMessageResponseB\tZ\a.;protob\x06proto3"
 
 var (
 	file_bots_proto_rawDescOnce sync.Once
@@ -513,7 +633,7 @@ func file_bots_proto_rawDescGZIP() []byte {
 	return file_bots_proto_rawDescData
 }
 
-var file_bots_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_bots_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_bots_proto_goTypes = []any{
 	(*AssistantBot)(nil),               // 0: AssistantBot
 	(*GetAssistantBotsRequest)(nil),    // 1: GetAssistantBotsRequest
@@ -524,22 +644,26 @@ var file_bots_proto_goTypes = []any{
 	(*DeleteAssistantBotResponse)(nil), // 6: DeleteAssistantBotResponse
 	(*UpdateAssistantBotRequest)(nil),  // 7: UpdateAssistantBotRequest
 	(*UpdateAssistantBotResponse)(nil), // 8: UpdateAssistantBotResponse
+	(*SendMessageRequest)(nil),         // 9: SendMessageRequest
+	(*SendMessageResponse)(nil),        // 10: SendMessageResponse
 }
 var file_bots_proto_depIdxs = []int32{
-	0, // 0: GetAssistantBotsResponse.Bots:type_name -> AssistantBot
-	1, // 1: Bots.GetAssistantBots:input_type -> GetAssistantBotsRequest
-	3, // 2: Bots.AddAssistantBot:input_type -> AddAssistantBotRequest
-	5, // 3: Bots.DeleteAssistantBot:input_type -> DeleteAssistantBotRequest
-	7, // 4: Bots.UpdateAssistantBot:input_type -> UpdateAssistantBotRequest
-	2, // 5: Bots.GetAssistantBots:output_type -> GetAssistantBotsResponse
-	4, // 6: Bots.AddAssistantBot:output_type -> AddAssistantBotResponse
-	6, // 7: Bots.DeleteAssistantBot:output_type -> DeleteAssistantBotResponse
-	8, // 8: Bots.UpdateAssistantBot:output_type -> UpdateAssistantBotResponse
-	5, // [5:9] is the sub-list for method output_type
-	1, // [1:5] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	0,  // 0: GetAssistantBotsResponse.Bots:type_name -> AssistantBot
+	1,  // 1: Bots.GetAssistantBots:input_type -> GetAssistantBotsRequest
+	3,  // 2: Bots.AddAssistantBot:input_type -> AddAssistantBotRequest
+	5,  // 3: Bots.DeleteAssistantBot:input_type -> DeleteAssistantBotRequest
+	7,  // 4: Bots.UpdateAssistantBot:input_type -> UpdateAssistantBotRequest
+	9,  // 5: Bots.SendMessage:input_type -> SendMessageRequest
+	2,  // 6: Bots.GetAssistantBots:output_type -> GetAssistantBotsResponse
+	4,  // 7: Bots.AddAssistantBot:output_type -> AddAssistantBotResponse
+	6,  // 8: Bots.DeleteAssistantBot:output_type -> DeleteAssistantBotResponse
+	8,  // 9: Bots.UpdateAssistantBot:output_type -> UpdateAssistantBotResponse
+	10, // 10: Bots.SendMessage:output_type -> SendMessageResponse
+	6,  // [6:11] is the sub-list for method output_type
+	1,  // [1:6] is the sub-list for method input_type
+	1,  // [1:1] is the sub-list for extension type_name
+	1,  // [1:1] is the sub-list for extension extendee
+	0,  // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_bots_proto_init() }
@@ -553,7 +677,7 @@ func file_bots_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_bots_proto_rawDesc), len(file_bots_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   9,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

@@ -23,6 +23,7 @@ const (
 	Bots_AddAssistantBot_FullMethodName    = "/Bots/AddAssistantBot"
 	Bots_DeleteAssistantBot_FullMethodName = "/Bots/DeleteAssistantBot"
 	Bots_UpdateAssistantBot_FullMethodName = "/Bots/UpdateAssistantBot"
+	Bots_SendMessage_FullMethodName        = "/Bots/SendMessage"
 )
 
 // BotsClient is the client API for Bots service.
@@ -33,6 +34,7 @@ type BotsClient interface {
 	AddAssistantBot(ctx context.Context, in *AddAssistantBotRequest, opts ...grpc.CallOption) (*AddAssistantBotResponse, error)
 	DeleteAssistantBot(ctx context.Context, in *DeleteAssistantBotRequest, opts ...grpc.CallOption) (*DeleteAssistantBotResponse, error)
 	UpdateAssistantBot(ctx context.Context, in *UpdateAssistantBotRequest, opts ...grpc.CallOption) (*UpdateAssistantBotResponse, error)
+	SendMessage(ctx context.Context, in *SendMessageRequest, opts ...grpc.CallOption) (*SendMessageResponse, error)
 }
 
 type botsClient struct {
@@ -83,6 +85,16 @@ func (c *botsClient) UpdateAssistantBot(ctx context.Context, in *UpdateAssistant
 	return out, nil
 }
 
+func (c *botsClient) SendMessage(ctx context.Context, in *SendMessageRequest, opts ...grpc.CallOption) (*SendMessageResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(SendMessageResponse)
+	err := c.cc.Invoke(ctx, Bots_SendMessage_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // BotsServer is the server API for Bots service.
 // All implementations must embed UnimplementedBotsServer
 // for forward compatibility.
@@ -91,6 +103,7 @@ type BotsServer interface {
 	AddAssistantBot(context.Context, *AddAssistantBotRequest) (*AddAssistantBotResponse, error)
 	DeleteAssistantBot(context.Context, *DeleteAssistantBotRequest) (*DeleteAssistantBotResponse, error)
 	UpdateAssistantBot(context.Context, *UpdateAssistantBotRequest) (*UpdateAssistantBotResponse, error)
+	SendMessage(context.Context, *SendMessageRequest) (*SendMessageResponse, error)
 	mustEmbedUnimplementedBotsServer()
 }
 
@@ -112,6 +125,9 @@ func (UnimplementedBotsServer) DeleteAssistantBot(context.Context, *DeleteAssist
 }
 func (UnimplementedBotsServer) UpdateAssistantBot(context.Context, *UpdateAssistantBotRequest) (*UpdateAssistantBotResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateAssistantBot not implemented")
+}
+func (UnimplementedBotsServer) SendMessage(context.Context, *SendMessageRequest) (*SendMessageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendMessage not implemented")
 }
 func (UnimplementedBotsServer) mustEmbedUnimplementedBotsServer() {}
 func (UnimplementedBotsServer) testEmbeddedByValue()              {}
@@ -206,6 +222,24 @@ func _Bots_UpdateAssistantBot_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Bots_SendMessage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SendMessageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BotsServer).SendMessage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Bots_SendMessage_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BotsServer).SendMessage(ctx, req.(*SendMessageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Bots_ServiceDesc is the grpc.ServiceDesc for Bots service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -228,6 +262,10 @@ var Bots_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateAssistantBot",
 			Handler:    _Bots_UpdateAssistantBot_Handler,
+		},
+		{
+			MethodName: "SendMessage",
+			Handler:    _Bots_SendMessage_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
