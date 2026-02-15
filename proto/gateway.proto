@@ -1,0 +1,27 @@
+syntax = "proto3";
+option go_package = ".;proto";
+
+service Gateway {
+    rpc SendMessageToWS(SendMessageToWSRequest) returns (SendMessageToWSResponse);
+    rpc ConnectToWS(ConnectToWSRequest) returns (ConnectToWSResponse);
+}
+
+message SendMessageToWSRequest {
+    string Text = 1;
+    string ClientId = 2;
+    int64 AssistantId = 3;
+}
+
+message SendMessageToWSResponse {
+    string Status = 1;
+}
+
+message ConnectToWSRequest {
+    string ClientId = 1;
+    int64 AssistantId = 2;
+    string ClientPlatform = 3;
+}
+
+message ConnectToWSResponse {
+    string Status = 1;
+}
