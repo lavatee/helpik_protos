@@ -3038,6 +3038,102 @@ func (x *GetAssistantOperatorsResponse) GetOperators() []*Operator {
 	return nil
 }
 
+type CheckIsAssistantOperatorRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	UserId        int64                  `protobuf:"varint,1,opt,name=UserId,proto3" json:"UserId,omitempty"`
+	AssistantId   int64                  `protobuf:"varint,2,opt,name=AssistantId,proto3" json:"AssistantId,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CheckIsAssistantOperatorRequest) Reset() {
+	*x = CheckIsAssistantOperatorRequest{}
+	mi := &file_clients_proto_msgTypes[54]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CheckIsAssistantOperatorRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CheckIsAssistantOperatorRequest) ProtoMessage() {}
+
+func (x *CheckIsAssistantOperatorRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[54]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CheckIsAssistantOperatorRequest.ProtoReflect.Descriptor instead.
+func (*CheckIsAssistantOperatorRequest) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{54}
+}
+
+func (x *CheckIsAssistantOperatorRequest) GetUserId() int64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+func (x *CheckIsAssistantOperatorRequest) GetAssistantId() int64 {
+	if x != nil {
+		return x.AssistantId
+	}
+	return 0
+}
+
+type CheckIsAssistantOperatorResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	IsOperator    bool                   `protobuf:"varint,1,opt,name=IsOperator,proto3" json:"IsOperator,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CheckIsAssistantOperatorResponse) Reset() {
+	*x = CheckIsAssistantOperatorResponse{}
+	mi := &file_clients_proto_msgTypes[55]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CheckIsAssistantOperatorResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CheckIsAssistantOperatorResponse) ProtoMessage() {}
+
+func (x *CheckIsAssistantOperatorResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_clients_proto_msgTypes[55]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CheckIsAssistantOperatorResponse.ProtoReflect.Descriptor instead.
+func (*CheckIsAssistantOperatorResponse) Descriptor() ([]byte, []int) {
+	return file_clients_proto_rawDescGZIP(), []int{55}
+}
+
+func (x *CheckIsAssistantOperatorResponse) GetIsOperator() bool {
+	if x != nil {
+		return x.IsOperator
+	}
+	return false
+}
+
 var File_clients_proto protoreflect.FileDescriptor
 
 const file_clients_proto_rawDesc = "" +
@@ -3254,7 +3350,14 @@ const file_clients_proto_rawDesc = "" +
 	"\vAssistantId\x18\x01 \x01(\x03R\vAssistantId\x12\x16\n" +
 	"\x06UserId\x18\x02 \x01(\x03R\x06UserId\"H\n" +
 	"\x1dGetAssistantOperatorsResponse\x12'\n" +
-	"\tOperators\x18\x01 \x03(\v2\t.OperatorR\tOperators2\xc3\f\n" +
+	"\tOperators\x18\x01 \x03(\v2\t.OperatorR\tOperators\"[\n" +
+	"\x1fCheckIsAssistantOperatorRequest\x12\x16\n" +
+	"\x06UserId\x18\x01 \x01(\x03R\x06UserId\x12 \n" +
+	"\vAssistantId\x18\x02 \x01(\x03R\vAssistantId\"B\n" +
+	" CheckIsAssistantOperatorResponse\x12\x1e\n" +
+	"\n" +
+	"IsOperator\x18\x01 \x01(\bR\n" +
+	"IsOperator2\xa4\r\n" +
 	"\aClients\x12D\n" +
 	"\x0fCreateAssistant\x12\x17.CreateAssistantRequest\x1a\x18.CreateAssistantResponse\x128\n" +
 	"\vAddDocument\x12\x13.AddDocumentRequest\x1a\x14.AddDocumentResponse\x12D\n" +
@@ -3278,7 +3381,8 @@ const file_clients_proto_rawDesc = "" +
 	"\x0fGetChatMessages\x12\x17.GetChatMessagesRequest\x1a\x18.GetChatMessagesResponse\x12>\n" +
 	"\rCreateMessage\x12\x15.CreateMessageRequest\x1a\x16.CreateMessageResponse\x12D\n" +
 	"\x0fCheckIsOperator\x12\x17.CheckIsOperatorRequest\x1a\x18.CheckIsOperatorResponse\x128\n" +
-	"\vNewOperator\x12\x13.NewOperatorRequest\x1a\x14.NewOperatorResponseB\tZ\a.;protob\x06proto3"
+	"\vNewOperator\x12\x13.NewOperatorRequest\x1a\x14.NewOperatorResponse\x12_\n" +
+	"\x18CheckIsAssistantOperator\x12 .CheckIsAssistantOperatorRequest\x1a!.CheckIsAssistantOperatorResponseB\tZ\a.;protob\x06proto3"
 
 var (
 	file_clients_proto_rawDescOnce sync.Once
@@ -3292,7 +3396,7 @@ func file_clients_proto_rawDescGZIP() []byte {
 	return file_clients_proto_rawDescData
 }
 
-var file_clients_proto_msgTypes = make([]protoimpl.MessageInfo, 54)
+var file_clients_proto_msgTypes = make([]protoimpl.MessageInfo, 56)
 var file_clients_proto_goTypes = []any{
 	(*Assistant)(nil),                        // 0: Assistant
 	(*Document)(nil),                         // 1: Document
@@ -3348,17 +3452,19 @@ var file_clients_proto_goTypes = []any{
 	(*NewOperatorResponse)(nil),              // 51: NewOperatorResponse
 	(*GetAssistantOperatorsRequest)(nil),     // 52: GetAssistantOperatorsRequest
 	(*GetAssistantOperatorsResponse)(nil),    // 53: GetAssistantOperatorsResponse
-	(*timestamppb.Timestamp)(nil),            // 54: google.protobuf.Timestamp
+	(*CheckIsAssistantOperatorRequest)(nil),  // 54: CheckIsAssistantOperatorRequest
+	(*CheckIsAssistantOperatorResponse)(nil), // 55: CheckIsAssistantOperatorResponse
+	(*timestamppb.Timestamp)(nil),            // 56: google.protobuf.Timestamp
 }
 var file_clients_proto_depIdxs = []int32{
-	54, // 0: Assistant.CreatedAt:type_name -> google.protobuf.Timestamp
-	54, // 1: Operator.LastCallTime:type_name -> google.protobuf.Timestamp
-	54, // 2: Operator.CreatedAt:type_name -> google.protobuf.Timestamp
-	54, // 3: OperatorQueue.CreatedAt:type_name -> google.protobuf.Timestamp
-	54, // 4: OperatorQueue.ServicedAt:type_name -> google.protobuf.Timestamp
-	54, // 5: Chat.CreatedAt:type_name -> google.protobuf.Timestamp
-	54, // 6: Message.SentAt:type_name -> google.protobuf.Timestamp
-	54, // 7: Message.ExpiresAt:type_name -> google.protobuf.Timestamp
+	56, // 0: Assistant.CreatedAt:type_name -> google.protobuf.Timestamp
+	56, // 1: Operator.LastCallTime:type_name -> google.protobuf.Timestamp
+	56, // 2: Operator.CreatedAt:type_name -> google.protobuf.Timestamp
+	56, // 3: OperatorQueue.CreatedAt:type_name -> google.protobuf.Timestamp
+	56, // 4: OperatorQueue.ServicedAt:type_name -> google.protobuf.Timestamp
+	56, // 5: Chat.CreatedAt:type_name -> google.protobuf.Timestamp
+	56, // 6: Message.SentAt:type_name -> google.protobuf.Timestamp
+	56, // 7: Message.ExpiresAt:type_name -> google.protobuf.Timestamp
 	0,  // 8: GetOneAssistantResponse.Assistant:type_name -> Assistant
 	0,  // 9: GetUserAssistantsResponse.Assistants:type_name -> Assistant
 	1,  // 10: GetAssistantDocumentsResponse.Documents:type_name -> Document
@@ -3395,30 +3501,32 @@ var file_clients_proto_depIdxs = []int32{
 	46, // 41: Clients.CreateMessage:input_type -> CreateMessageRequest
 	48, // 42: Clients.CheckIsOperator:input_type -> CheckIsOperatorRequest
 	50, // 43: Clients.NewOperator:input_type -> NewOperatorRequest
-	9,  // 44: Clients.CreateAssistant:output_type -> CreateAssistantResponse
-	11, // 45: Clients.AddDocument:output_type -> AddDocumentResponse
-	13, // 46: Clients.DeleteAssistant:output_type -> DeleteAssistantResponse
-	15, // 47: Clients.DeleteDocument:output_type -> DeleteDocumentResponse
-	17, // 48: Clients.GetOneAssistant:output_type -> GetOneAssistantResponse
-	19, // 49: Clients.GetUserAssistants:output_type -> GetUserAssistantsResponse
-	21, // 50: Clients.GetAssistantDocuments:output_type -> GetAssistantDocumentsResponse
-	23, // 51: Clients.UpdateAssistant:output_type -> UpdateAssistantResponse
-	25, // 52: Clients.GiveAnswer:output_type -> GiveAnswerResponse
-	27, // 53: Clients.GetAssistantGivenAnswers:output_type -> GetAssistantGivenAnswersResponse
-	29, // 54: Clients.DeleteGivenAnswer:output_type -> DeleteGivenAnswerResponse
-	31, // 55: Clients.CreateAppeal:output_type -> CreateAppealResponse
-	33, // 56: Clients.GetAssistantAppeals:output_type -> GetAssistantAppealsResponse
-	35, // 57: Clients.GetUserAssistantsAppeals:output_type -> GetUserAssistantsAppealsResponse
-	37, // 58: Clients.AddClientToQueue:output_type -> AddClientToQueueResponse
-	39, // 59: Clients.GetOperatorChats:output_type -> GetOperatorChatsResponse
-	41, // 60: Clients.GetUserOperators:output_type -> GetUserOperatorsResponse
-	43, // 61: Clients.GetOneQueueClient:output_type -> GetOneQueueClientResponse
-	45, // 62: Clients.GetChatMessages:output_type -> GetChatMessagesResponse
-	47, // 63: Clients.CreateMessage:output_type -> CreateMessageResponse
-	49, // 64: Clients.CheckIsOperator:output_type -> CheckIsOperatorResponse
-	51, // 65: Clients.NewOperator:output_type -> NewOperatorResponse
-	44, // [44:66] is the sub-list for method output_type
-	22, // [22:44] is the sub-list for method input_type
+	54, // 44: Clients.CheckIsAssistantOperator:input_type -> CheckIsAssistantOperatorRequest
+	9,  // 45: Clients.CreateAssistant:output_type -> CreateAssistantResponse
+	11, // 46: Clients.AddDocument:output_type -> AddDocumentResponse
+	13, // 47: Clients.DeleteAssistant:output_type -> DeleteAssistantResponse
+	15, // 48: Clients.DeleteDocument:output_type -> DeleteDocumentResponse
+	17, // 49: Clients.GetOneAssistant:output_type -> GetOneAssistantResponse
+	19, // 50: Clients.GetUserAssistants:output_type -> GetUserAssistantsResponse
+	21, // 51: Clients.GetAssistantDocuments:output_type -> GetAssistantDocumentsResponse
+	23, // 52: Clients.UpdateAssistant:output_type -> UpdateAssistantResponse
+	25, // 53: Clients.GiveAnswer:output_type -> GiveAnswerResponse
+	27, // 54: Clients.GetAssistantGivenAnswers:output_type -> GetAssistantGivenAnswersResponse
+	29, // 55: Clients.DeleteGivenAnswer:output_type -> DeleteGivenAnswerResponse
+	31, // 56: Clients.CreateAppeal:output_type -> CreateAppealResponse
+	33, // 57: Clients.GetAssistantAppeals:output_type -> GetAssistantAppealsResponse
+	35, // 58: Clients.GetUserAssistantsAppeals:output_type -> GetUserAssistantsAppealsResponse
+	37, // 59: Clients.AddClientToQueue:output_type -> AddClientToQueueResponse
+	39, // 60: Clients.GetOperatorChats:output_type -> GetOperatorChatsResponse
+	41, // 61: Clients.GetUserOperators:output_type -> GetUserOperatorsResponse
+	43, // 62: Clients.GetOneQueueClient:output_type -> GetOneQueueClientResponse
+	45, // 63: Clients.GetChatMessages:output_type -> GetChatMessagesResponse
+	47, // 64: Clients.CreateMessage:output_type -> CreateMessageResponse
+	49, // 65: Clients.CheckIsOperator:output_type -> CheckIsOperatorResponse
+	51, // 66: Clients.NewOperator:output_type -> NewOperatorResponse
+	55, // 67: Clients.CheckIsAssistantOperator:output_type -> CheckIsAssistantOperatorResponse
+	45, // [45:68] is the sub-list for method output_type
+	22, // [22:45] is the sub-list for method input_type
 	22, // [22:22] is the sub-list for extension type_name
 	22, // [22:22] is the sub-list for extension extendee
 	0,  // [0:22] is the sub-list for field type_name
@@ -3435,7 +3543,7 @@ func file_clients_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_clients_proto_rawDesc), len(file_clients_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   54,
+			NumMessages:   56,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

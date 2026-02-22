@@ -25,6 +25,7 @@ service Clients {
     rpc CreateMessage(CreateMessageRequest) returns (CreateMessageResponse);
     rpc CheckIsOperator(CheckIsOperatorRequest) returns (CheckIsOperatorResponse);
     rpc NewOperator(NewOperatorRequest) returns (NewOperatorResponse);
+    rpc CheckIsAssistantOperator(CheckIsAssistantOperatorRequest) returns (CheckIsAssistantOperatorResponse);
 }
 
 message Assistant {
@@ -321,4 +322,13 @@ message GetAssistantOperatorsRequest {
 
 message GetAssistantOperatorsResponse {
     repeated Operator Operators = 1;
+}
+
+message CheckIsAssistantOperatorRequest {
+    int64 UserId = 1;
+    int64 AssistantId = 2;
+}
+
+message CheckIsAssistantOperatorResponse {
+    bool IsOperator = 1;
 }
