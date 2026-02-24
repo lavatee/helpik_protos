@@ -26,6 +26,7 @@ service Clients {
     rpc CheckIsOperator(CheckIsOperatorRequest) returns (CheckIsOperatorResponse);
     rpc NewOperator(NewOperatorRequest) returns (NewOperatorResponse);
     rpc CheckIsAssistantOperator(CheckIsAssistantOperatorRequest) returns (CheckIsAssistantOperatorResponse);
+    rpc GetHandoffChat(GetHandoffChatRequest) returns (GetHandoffChatResponse);
 }
 
 message Assistant {
@@ -331,4 +332,13 @@ message CheckIsAssistantOperatorRequest {
 
 message CheckIsAssistantOperatorResponse {
     bool IsOperator = 1;
+}
+
+message GetHandoffChatRequest {
+    string ClientId = 1;
+    int64 OperatorId = 2;
+}
+
+message GetHandoffChatResponse {
+    int64 ChatId = 1;
 }

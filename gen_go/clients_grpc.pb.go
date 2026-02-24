@@ -42,6 +42,7 @@ const (
 	Clients_CheckIsOperator_FullMethodName          = "/Clients/CheckIsOperator"
 	Clients_NewOperator_FullMethodName              = "/Clients/NewOperator"
 	Clients_CheckIsAssistantOperator_FullMethodName = "/Clients/CheckIsAssistantOperator"
+	Clients_GetHandoffChat_FullMethodName           = "/Clients/GetHandoffChat"
 )
 
 // ClientsClient is the client API for Clients service.
@@ -71,6 +72,7 @@ type ClientsClient interface {
 	CheckIsOperator(ctx context.Context, in *CheckIsOperatorRequest, opts ...grpc.CallOption) (*CheckIsOperatorResponse, error)
 	NewOperator(ctx context.Context, in *NewOperatorRequest, opts ...grpc.CallOption) (*NewOperatorResponse, error)
 	CheckIsAssistantOperator(ctx context.Context, in *CheckIsAssistantOperatorRequest, opts ...grpc.CallOption) (*CheckIsAssistantOperatorResponse, error)
+	GetHandoffChat(ctx context.Context, in *GetHandoffChatRequest, opts ...grpc.CallOption) (*GetHandoffChatResponse, error)
 }
 
 type clientsClient struct {
@@ -311,6 +313,16 @@ func (c *clientsClient) CheckIsAssistantOperator(ctx context.Context, in *CheckI
 	return out, nil
 }
 
+func (c *clientsClient) GetHandoffChat(ctx context.Context, in *GetHandoffChatRequest, opts ...grpc.CallOption) (*GetHandoffChatResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetHandoffChatResponse)
+	err := c.cc.Invoke(ctx, Clients_GetHandoffChat_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ClientsServer is the server API for Clients service.
 // All implementations must embed UnimplementedClientsServer
 // for forward compatibility.
@@ -338,6 +350,7 @@ type ClientsServer interface {
 	CheckIsOperator(context.Context, *CheckIsOperatorRequest) (*CheckIsOperatorResponse, error)
 	NewOperator(context.Context, *NewOperatorRequest) (*NewOperatorResponse, error)
 	CheckIsAssistantOperator(context.Context, *CheckIsAssistantOperatorRequest) (*CheckIsAssistantOperatorResponse, error)
+	GetHandoffChat(context.Context, *GetHandoffChatRequest) (*GetHandoffChatResponse, error)
 	mustEmbedUnimplementedClientsServer()
 }
 
@@ -416,6 +429,9 @@ func (UnimplementedClientsServer) NewOperator(context.Context, *NewOperatorReque
 }
 func (UnimplementedClientsServer) CheckIsAssistantOperator(context.Context, *CheckIsAssistantOperatorRequest) (*CheckIsAssistantOperatorResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CheckIsAssistantOperator not implemented")
+}
+func (UnimplementedClientsServer) GetHandoffChat(context.Context, *GetHandoffChatRequest) (*GetHandoffChatResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetHandoffChat not implemented")
 }
 func (UnimplementedClientsServer) mustEmbedUnimplementedClientsServer() {}
 func (UnimplementedClientsServer) testEmbeddedByValue()                 {}
@@ -852,6 +868,24 @@ func _Clients_CheckIsAssistantOperator_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Clients_GetHandoffChat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetHandoffChatRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClientsServer).GetHandoffChat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Clients_GetHandoffChat_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClientsServer).GetHandoffChat(ctx, req.(*GetHandoffChatRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Clients_ServiceDesc is the grpc.ServiceDesc for Clients service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -950,6 +984,10 @@ var Clients_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CheckIsAssistantOperator",
 			Handler:    _Clients_CheckIsAssistantOperator_Handler,
+		},
+		{
+			MethodName: "GetHandoffChat",
+			Handler:    _Clients_GetHandoffChat_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
