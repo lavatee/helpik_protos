@@ -28,6 +28,7 @@ service Clients {
     rpc CheckIsAssistantOperator(CheckIsAssistantOperatorRequest) returns (CheckIsAssistantOperatorResponse);
     rpc GetHandoffChat(GetHandoffChatRequest) returns (GetHandoffChatResponse);
     rpc ServiceClient(ServiceClientRequest) returns (ServiceClientResponse);
+    rpc GetAssistantOperators(GetAssistantOperatorsRequest) returns (GetAssistantOperatorsResponse);
 }
 
 message Assistant {

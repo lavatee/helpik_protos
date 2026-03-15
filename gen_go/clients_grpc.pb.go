@@ -44,6 +44,7 @@ const (
 	Clients_CheckIsAssistantOperator_FullMethodName = "/Clients/CheckIsAssistantOperator"
 	Clients_GetHandoffChat_FullMethodName           = "/Clients/GetHandoffChat"
 	Clients_ServiceClient_FullMethodName            = "/Clients/ServiceClient"
+	Clients_GetAssistantOperators_FullMethodName    = "/Clients/GetAssistantOperators"
 )
 
 // ClientsClient is the client API for Clients service.
@@ -75,6 +76,7 @@ type ClientsClient interface {
 	CheckIsAssistantOperator(ctx context.Context, in *CheckIsAssistantOperatorRequest, opts ...grpc.CallOption) (*CheckIsAssistantOperatorResponse, error)
 	GetHandoffChat(ctx context.Context, in *GetHandoffChatRequest, opts ...grpc.CallOption) (*GetHandoffChatResponse, error)
 	ServiceClient(ctx context.Context, in *ServiceClientRequest, opts ...grpc.CallOption) (*ServiceClientResponse, error)
+	GetAssistantOperators(ctx context.Context, in *GetAssistantOperatorsRequest, opts ...grpc.CallOption) (*GetAssistantOperatorsResponse, error)
 }
 
 type clientsClient struct {
@@ -335,6 +337,16 @@ func (c *clientsClient) ServiceClient(ctx context.Context, in *ServiceClientRequ
 	return out, nil
 }
 
+func (c *clientsClient) GetAssistantOperators(ctx context.Context, in *GetAssistantOperatorsRequest, opts ...grpc.CallOption) (*GetAssistantOperatorsResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetAssistantOperatorsResponse)
+	err := c.cc.Invoke(ctx, Clients_GetAssistantOperators_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // ClientsServer is the server API for Clients service.
 // All implementations must embed UnimplementedClientsServer
 // for forward compatibility.
@@ -364,6 +376,7 @@ type ClientsServer interface {
 	CheckIsAssistantOperator(context.Context, *CheckIsAssistantOperatorRequest) (*CheckIsAssistantOperatorResponse, error)
 	GetHandoffChat(context.Context, *GetHandoffChatRequest) (*GetHandoffChatResponse, error)
 	ServiceClient(context.Context, *ServiceClientRequest) (*ServiceClientResponse, error)
+	GetAssistantOperators(context.Context, *GetAssistantOperatorsRequest) (*GetAssistantOperatorsResponse, error)
 	mustEmbedUnimplementedClientsServer()
 }
 
@@ -448,6 +461,9 @@ func (UnimplementedClientsServer) GetHandoffChat(context.Context, *GetHandoffCha
 }
 func (UnimplementedClientsServer) ServiceClient(context.Context, *ServiceClientRequest) (*ServiceClientResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ServiceClient not implemented")
+}
+func (UnimplementedClientsServer) GetAssistantOperators(context.Context, *GetAssistantOperatorsRequest) (*GetAssistantOperatorsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAssistantOperators not implemented")
 }
 func (UnimplementedClientsServer) mustEmbedUnimplementedClientsServer() {}
 func (UnimplementedClientsServer) testEmbeddedByValue()                 {}
@@ -920,6 +936,24 @@ func _Clients_ServiceClient_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Clients_GetAssistantOperators_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAssistantOperatorsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ClientsServer).GetAssistantOperators(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Clients_GetAssistantOperators_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ClientsServer).GetAssistantOperators(ctx, req.(*GetAssistantOperatorsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Clients_ServiceDesc is the grpc.ServiceDesc for Clients service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -1026,6 +1060,10 @@ var Clients_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ServiceClient",
 			Handler:    _Clients_ServiceClient_Handler,
+		},
+		{
+			MethodName: "GetAssistantOperators",
+			Handler:    _Clients_GetAssistantOperators_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

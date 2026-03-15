@@ -3570,7 +3570,7 @@ const file_clients_proto_rawDesc = "" +
 	"\bClientId\x18\x01 \x01(\tR\bClientId\x12 \n" +
 	"\vAssistantId\x18\x02 \x01(\x03R\vAssistantId\"/\n" +
 	"\x15ServiceClientResponse\x12\x16\n" +
-	"\x06Status\x18\x01 \x01(\tR\x06Status2\xa7\x0e\n" +
+	"\x06Status\x18\x01 \x01(\tR\x06Status2\xff\x0e\n" +
 	"\aClients\x12D\n" +
 	"\x0fCreateAssistant\x12\x17.CreateAssistantRequest\x1a\x18.CreateAssistantResponse\x128\n" +
 	"\vAddDocument\x12\x13.AddDocumentRequest\x1a\x14.AddDocumentResponse\x12D\n" +
@@ -3597,7 +3597,8 @@ const file_clients_proto_rawDesc = "" +
 	"\vNewOperator\x12\x13.NewOperatorRequest\x1a\x14.NewOperatorResponse\x12_\n" +
 	"\x18CheckIsAssistantOperator\x12 .CheckIsAssistantOperatorRequest\x1a!.CheckIsAssistantOperatorResponse\x12A\n" +
 	"\x0eGetHandoffChat\x12\x16.GetHandoffChatRequest\x1a\x17.GetHandoffChatResponse\x12>\n" +
-	"\rServiceClient\x12\x15.ServiceClientRequest\x1a\x16.ServiceClientResponseB\tZ\a.;protob\x06proto3"
+	"\rServiceClient\x12\x15.ServiceClientRequest\x1a\x16.ServiceClientResponse\x12V\n" +
+	"\x15GetAssistantOperators\x12\x1d.GetAssistantOperatorsRequest\x1a\x1e.GetAssistantOperatorsResponseB\tZ\a.;protob\x06proto3"
 
 var (
 	file_clients_proto_rawDescOnce sync.Once
@@ -3723,33 +3724,35 @@ var file_clients_proto_depIdxs = []int32{
 	54, // 44: Clients.CheckIsAssistantOperator:input_type -> CheckIsAssistantOperatorRequest
 	56, // 45: Clients.GetHandoffChat:input_type -> GetHandoffChatRequest
 	58, // 46: Clients.ServiceClient:input_type -> ServiceClientRequest
-	9,  // 47: Clients.CreateAssistant:output_type -> CreateAssistantResponse
-	11, // 48: Clients.AddDocument:output_type -> AddDocumentResponse
-	13, // 49: Clients.DeleteAssistant:output_type -> DeleteAssistantResponse
-	15, // 50: Clients.DeleteDocument:output_type -> DeleteDocumentResponse
-	17, // 51: Clients.GetOneAssistant:output_type -> GetOneAssistantResponse
-	19, // 52: Clients.GetUserAssistants:output_type -> GetUserAssistantsResponse
-	21, // 53: Clients.GetAssistantDocuments:output_type -> GetAssistantDocumentsResponse
-	23, // 54: Clients.UpdateAssistant:output_type -> UpdateAssistantResponse
-	25, // 55: Clients.GiveAnswer:output_type -> GiveAnswerResponse
-	27, // 56: Clients.GetAssistantGivenAnswers:output_type -> GetAssistantGivenAnswersResponse
-	29, // 57: Clients.DeleteGivenAnswer:output_type -> DeleteGivenAnswerResponse
-	31, // 58: Clients.CreateAppeal:output_type -> CreateAppealResponse
-	33, // 59: Clients.GetAssistantAppeals:output_type -> GetAssistantAppealsResponse
-	35, // 60: Clients.GetUserAssistantsAppeals:output_type -> GetUserAssistantsAppealsResponse
-	37, // 61: Clients.AddClientToQueue:output_type -> AddClientToQueueResponse
-	39, // 62: Clients.GetOperatorChats:output_type -> GetOperatorChatsResponse
-	41, // 63: Clients.GetUserOperators:output_type -> GetUserOperatorsResponse
-	43, // 64: Clients.GetOneQueueClient:output_type -> GetOneQueueClientResponse
-	45, // 65: Clients.GetChatMessages:output_type -> GetChatMessagesResponse
-	47, // 66: Clients.CreateMessage:output_type -> CreateMessageResponse
-	49, // 67: Clients.CheckIsOperator:output_type -> CheckIsOperatorResponse
-	51, // 68: Clients.NewOperator:output_type -> NewOperatorResponse
-	55, // 69: Clients.CheckIsAssistantOperator:output_type -> CheckIsAssistantOperatorResponse
-	57, // 70: Clients.GetHandoffChat:output_type -> GetHandoffChatResponse
-	59, // 71: Clients.ServiceClient:output_type -> ServiceClientResponse
-	47, // [47:72] is the sub-list for method output_type
-	22, // [22:47] is the sub-list for method input_type
+	52, // 47: Clients.GetAssistantOperators:input_type -> GetAssistantOperatorsRequest
+	9,  // 48: Clients.CreateAssistant:output_type -> CreateAssistantResponse
+	11, // 49: Clients.AddDocument:output_type -> AddDocumentResponse
+	13, // 50: Clients.DeleteAssistant:output_type -> DeleteAssistantResponse
+	15, // 51: Clients.DeleteDocument:output_type -> DeleteDocumentResponse
+	17, // 52: Clients.GetOneAssistant:output_type -> GetOneAssistantResponse
+	19, // 53: Clients.GetUserAssistants:output_type -> GetUserAssistantsResponse
+	21, // 54: Clients.GetAssistantDocuments:output_type -> GetAssistantDocumentsResponse
+	23, // 55: Clients.UpdateAssistant:output_type -> UpdateAssistantResponse
+	25, // 56: Clients.GiveAnswer:output_type -> GiveAnswerResponse
+	27, // 57: Clients.GetAssistantGivenAnswers:output_type -> GetAssistantGivenAnswersResponse
+	29, // 58: Clients.DeleteGivenAnswer:output_type -> DeleteGivenAnswerResponse
+	31, // 59: Clients.CreateAppeal:output_type -> CreateAppealResponse
+	33, // 60: Clients.GetAssistantAppeals:output_type -> GetAssistantAppealsResponse
+	35, // 61: Clients.GetUserAssistantsAppeals:output_type -> GetUserAssistantsAppealsResponse
+	37, // 62: Clients.AddClientToQueue:output_type -> AddClientToQueueResponse
+	39, // 63: Clients.GetOperatorChats:output_type -> GetOperatorChatsResponse
+	41, // 64: Clients.GetUserOperators:output_type -> GetUserOperatorsResponse
+	43, // 65: Clients.GetOneQueueClient:output_type -> GetOneQueueClientResponse
+	45, // 66: Clients.GetChatMessages:output_type -> GetChatMessagesResponse
+	47, // 67: Clients.CreateMessage:output_type -> CreateMessageResponse
+	49, // 68: Clients.CheckIsOperator:output_type -> CheckIsOperatorResponse
+	51, // 69: Clients.NewOperator:output_type -> NewOperatorResponse
+	55, // 70: Clients.CheckIsAssistantOperator:output_type -> CheckIsAssistantOperatorResponse
+	57, // 71: Clients.GetHandoffChat:output_type -> GetHandoffChatResponse
+	59, // 72: Clients.ServiceClient:output_type -> ServiceClientResponse
+	53, // 73: Clients.GetAssistantOperators:output_type -> GetAssistantOperatorsResponse
+	48, // [48:74] is the sub-list for method output_type
+	22, // [22:48] is the sub-list for method input_type
 	22, // [22:22] is the sub-list for extension type_name
 	22, // [22:22] is the sub-list for extension extendee
 	0,  // [0:22] is the sub-list for field type_name
