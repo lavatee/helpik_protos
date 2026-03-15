@@ -2850,6 +2850,7 @@ type NewOperatorRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Operator      *Operator              `protobuf:"bytes,1,opt,name=Operator,proto3" json:"Operator,omitempty"`
 	UserId        int64                  `protobuf:"varint,2,opt,name=UserId,proto3" json:"UserId,omitempty"`
+	OperatorEmail string                 `protobuf:"bytes,3,opt,name=OperatorEmail,proto3" json:"OperatorEmail,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2896,6 +2897,13 @@ func (x *NewOperatorRequest) GetUserId() int64 {
 		return x.UserId
 	}
 	return 0
+}
+
+func (x *NewOperatorRequest) GetOperatorEmail() string {
+	if x != nil {
+		return x.OperatorEmail
+	}
+	return ""
 }
 
 type NewOperatorResponse struct {
@@ -3530,10 +3538,11 @@ const file_clients_proto_rawDesc = "" +
 	"\x17CheckIsOperatorResponse\x12\x1e\n" +
 	"\n" +
 	"IsOperator\x18\x01 \x01(\bR\n" +
-	"IsOperator\"S\n" +
+	"IsOperator\"y\n" +
 	"\x12NewOperatorRequest\x12%\n" +
 	"\bOperator\x18\x01 \x01(\v2\t.OperatorR\bOperator\x12\x16\n" +
-	"\x06UserId\x18\x02 \x01(\x03R\x06UserId\"5\n" +
+	"\x06UserId\x18\x02 \x01(\x03R\x06UserId\x12$\n" +
+	"\rOperatorEmail\x18\x03 \x01(\tR\rOperatorEmail\"5\n" +
 	"\x13NewOperatorResponse\x12\x1e\n" +
 	"\n" +
 	"OperatorId\x18\x01 \x01(\x03R\n" +

@@ -311,6 +311,7 @@ message CheckIsOperatorResponse {
 message NewOperatorRequest {
     Operator Operator = 1;
     int64 UserId = 2;
+    string OperatorEmail = 3;
 }
 
 message NewOperatorResponse {
