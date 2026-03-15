@@ -3239,11 +3239,12 @@ func (x *GetHandoffChatResponse) GetChatId() int64 {
 }
 
 type ServiceClientRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	ClientId      string                 `protobuf:"bytes,1,opt,name=ClientId,proto3" json:"ClientId,omitempty"`
-	AssistantId   int64                  `protobuf:"varint,2,opt,name=AssistantId,proto3" json:"AssistantId,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	ClientId       string                 `protobuf:"bytes,1,opt,name=ClientId,proto3" json:"ClientId,omitempty"`
+	AssistantId    int64                  `protobuf:"varint,2,opt,name=AssistantId,proto3" json:"AssistantId,omitempty"`
+	OperatorUserId int64                  `protobuf:"varint,3,opt,name=OperatorUserId,proto3" json:"OperatorUserId,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
 }
 
 func (x *ServiceClientRequest) Reset() {
@@ -3286,6 +3287,13 @@ func (x *ServiceClientRequest) GetClientId() string {
 func (x *ServiceClientRequest) GetAssistantId() int64 {
 	if x != nil {
 		return x.AssistantId
+	}
+	return 0
+}
+
+func (x *ServiceClientRequest) GetOperatorUserId() int64 {
+	if x != nil {
+		return x.OperatorUserId
 	}
 	return 0
 }
@@ -3565,10 +3573,11 @@ const file_clients_proto_rawDesc = "" +
 	"OperatorId\x18\x02 \x01(\x03R\n" +
 	"OperatorId\"0\n" +
 	"\x16GetHandoffChatResponse\x12\x16\n" +
-	"\x06ChatId\x18\x01 \x01(\x03R\x06ChatId\"T\n" +
+	"\x06ChatId\x18\x01 \x01(\x03R\x06ChatId\"|\n" +
 	"\x14ServiceClientRequest\x12\x1a\n" +
 	"\bClientId\x18\x01 \x01(\tR\bClientId\x12 \n" +
-	"\vAssistantId\x18\x02 \x01(\x03R\vAssistantId\"/\n" +
+	"\vAssistantId\x18\x02 \x01(\x03R\vAssistantId\x12&\n" +
+	"\x0eOperatorUserId\x18\x03 \x01(\x03R\x0eOperatorUserId\"/\n" +
 	"\x15ServiceClientResponse\x12\x16\n" +
 	"\x06Status\x18\x01 \x01(\tR\x06Status2\xff\x0e\n" +
 	"\aClients\x12D\n" +
